@@ -1,6 +1,25 @@
 {
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "declaration": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "moduleResolution": "node",
     "experimentalDecorators": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "plugins": [
+      {
+        "name": "ts-lit-plugin",
+        "strict": true
+      }
+    ]
   }
 }

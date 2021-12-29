@@ -1,9 +1,10 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import { ColorConverter } from 'cie-colorconverter';
 import { fileOpen, supported } from 'browser-fs-access';
 
-@customElement('app-component')
-export class AppComponent extends LitElement {
+@customElement('app-shell')
+export class AppShell extends LitElement {
   @property()
   name?: string = 'World';
 
@@ -24,6 +25,12 @@ export class AppComponent extends LitElement {
     } else {
       console.log('Using the fallback implementation.');
     }
+
+    const converter = new ColorConverter();
+
+    const xyY = converter.XYZ_to_xyY([50.080456544802, 23.999465510573, -0.030842717841]);
+
+    console.log('xyY', xyY);
   }
 
   // Render the UI as a function of component state
