@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "source": "src/index.html",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "browserslist": ["> 0.5%", "last 2 versions", "not dead"],
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
@@ -14,9 +14,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.0.1"
+    "parcel": "^2.0.1",
+    "prettier": "^2.5.1"
   },
   "dependencies": {
+    "browser-fs-access": "^0.23.0",
     "cie-colorconverter": "^2.0.1",
     "fast-xml-parser": "^4.0.0-beta.8"
   }
