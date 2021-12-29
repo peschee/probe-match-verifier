@@ -1,12 +1,15 @@
 import { LitElement, css, html } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import { fileOpen, supported } from 'browser-fs-access';
 
+@customElement('app-component')
 export class AppComponent extends LitElement {
-  static properties = {
-    name: {},
-  };
+  @property()
+  name?: string = 'World';
 
-  // Define scoped styles right with your component, in plain CSS
+  @state()
+  file?: File;
+
   static styles = css`
     :host {
       color: blue;
@@ -15,8 +18,6 @@ export class AppComponent extends LitElement {
 
   constructor() {
     super();
-    // Declare reactive properties
-    this.name = 'World';
 
     if (supported) {
       console.log('Using the File System Access API.');
@@ -28,18 +29,20 @@ export class AppComponent extends LitElement {
   // Render the UI as a function of component state
   render() {
     return html`<p>Hello, ${this.name}!</p>
-      <p><a href="#" @click="${this.openBcsFile}">Open BCS</a></p>`;
+      <p><a href="#" @click="${this.openBcsFile}">Open BCS</a> ${this.file?.name}</p>`;
   }
 
-  async openBcsFile() {
+  private async openBcsFile() {
     // Open a file.
     const blob = await fileOpen({
       description: 'BCS files',
       extensions: ['.bcs'],
     });
 
+    const oldFile = this.file;
+    this.file = blob;
+    this.requestUpdate('file', oldFile);
+
     console.log('blob', blob);
   }
 }
-
-customElements.define('app-component', AppComponent);
