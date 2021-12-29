@@ -1,5 +1,6 @@
 import { html, LitElement, nothing, PropertyValues, unsafeCSS } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { ColorConverter } from 'cie-colorconverter';
 import { fileOpen, supported } from 'browser-fs-access';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
@@ -7,8 +8,8 @@ import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import styles from 'bundle-text:./app-shell.scss';
 import { relativeDifference } from './helpers';
 
-const DEBUG = false;
-// const DEBUG = process.env.NODE_ENV !== 'production';
+// const DEBUG = false;
+const DEBUG = process.env.NODE_ENV !== 'production';
 
 @customElement('app-shell')
 export class AppShell extends LitElement {
@@ -25,7 +26,7 @@ export class AppShell extends LitElement {
   verificationRGBW?: RGBW;
 
   @state()
-  xyYErrors?: Record<string, any>;
+  xyYErrors?: xyYErrors;
 
   private xmlParser = new XMLParser({
     ignoreAttributes: false,
@@ -45,10 +46,14 @@ export class AppShell extends LitElement {
 
   render() {
     return html`
+      <h1>Probe Match Verification</h1>
       <p>Reference BPD File: <a href="#" @click="${this.openReferenceBpdFile}">Open BPD</a> ${this.referenceBpd?.name}</p>
       ${this.referenceRGBW ? this.renderRGBW(this.referenceRGBW) : nothing}
       <p>Verification BCS File: <a href="#" @click="${this.openVerificationBcsFile}">Open BCS</a> ${this.verificationBcs?.name}</p>
       ${this.verificationRGBW ? this.renderRGBW(this.verificationRGBW) : nothing}
+      ${this.referenceRGBW && this.verificationRGBW && this.xyYErrors
+        ? AppShell.renderComparison(this.referenceRGBW, this.verificationRGBW, this.xyYErrors)
+        : nothing}
     `;
   }
 
@@ -77,6 +82,7 @@ export class AppShell extends LitElement {
 
     if (changedProperties.has('referenceRGBW') || changedProperties.has('verificationRGBW')) {
       this.xyYErrors = AppShell.computexyYErrors(this.referenceRGBW, this.verificationRGBW);
+      this.requestUpdate('xyYErrors');
 
       if (DEBUG) {
         console.log('xyYErrors');
@@ -121,19 +127,208 @@ export class AppShell extends LitElement {
     return html`
       <table>
         <tr>
-          <td></td>
-          <td>R</td>
-          <td>G</td>
-          <td>B</td>
-          <td>W</td>
+          <th></th>
+          <th>R</th>
+          <th>G</th>
+          <th>B</th>
+          <th>W</th>
         </tr>
         ${matrix.map(
-          (row, index) =>
+          (row, rowIndex) =>
             html`<tr>
-              <td>${AppShell.getRowLabelForIndex(index)}</td>
-              ${row.map((col) => html`<td>${col}</td>`)}
+              <td>${AppShell.getRowLabelForIndex(rowIndex)}</td>
+              ${row.map(
+                (col, colIndex) =>
+                  html`<td
+                    class="${classMap({
+                      r: colIndex === 0,
+                      g: colIndex === 1,
+                      b: colIndex === 2,
+                      w: colIndex === 3,
+                    })}"
+                  >
+                    ${col}
+                  </td>`
+              )}
             </tr>`
         )}
+      </table>
+    `;
+  }
+
+  private static renderComparison(reference: RGBW, verification: RGBW, errors: xyYErrors) {
+    const redxyYReference = {
+      x: reference[0][0],
+      y: reference[1][0],
+      Y: reference[1][0],
+    };
+
+    const redxyYVerification = {
+      x: verification[0][0],
+      y: verification[1][0],
+      Y: verification[1][0],
+    };
+
+    const greenxyYReference = {
+      x: reference[0][1],
+      y: reference[1][1],
+      Y: reference[1][1],
+    };
+
+    const greenxyYVerification = {
+      x: verification[0][1],
+      y: verification[1][1],
+      Y: verification[1][1],
+    };
+
+    const bluexyYReference = {
+      x: reference[0][2],
+      y: reference[1][2],
+      Y: reference[1][2],
+    };
+
+    const bluexyYVerification = {
+      x: verification[0][2],
+      y: verification[1][2],
+      Y: verification[1][2],
+    };
+
+    const whitexyYReference = {
+      x: reference[0][3],
+      y: reference[1][3],
+      Y: reference[1][3],
+    };
+
+    const whitexyYVerification = {
+      x: verification[0][3],
+      y: verification[1][3],
+      Y: verification[1][3],
+    };
+
+    return html`
+      <p>Profiled Meter Comparison</p>
+      <table>
+        <tr class="r">
+          <th>Red</th>
+          <th>Reference</th>
+          <th>Profile</th>
+          <th>Error</th>
+          <th>Pass/Fail</th>
+        </tr>
+        <tr class="r">
+          <th>x</th>
+          <td>${redxyYReference.x}</td>
+          <td>${redxyYVerification.x}</td>
+          <td>${AppShell.renderError(errors.red.x)}</td>
+          <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.red.x))}</td>
+        </tr>
+        <tr class="r">
+          <th>y</th>
+          <td>${redxyYReference.y}</td>
+          <td>${redxyYVerification.y}</td>
+          <td>${AppShell.renderError(errors.red.y)}</td>
+          <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.red.y))}</td>
+        </tr>
+        <tr class="r">
+          <th>Y</th>
+          <td>${redxyYReference.Y}</td>
+          <td>${redxyYVerification.Y}</td>
+          <td>${AppShell.renderError(errors.red.Y)}</td>
+          <td>${AppShell.renderNistPassFail(AppShell.passesNistY(errors.red.Y))}</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr class="g">
+          <th>Green</th>
+          <th>Reference</th>
+          <th>Profile</th>
+          <th>Error</th>
+          <th>Pass/Fail</th>
+        </tr>
+        <tr class="g">
+          <th>x</th>
+          <td>${greenxyYReference.x}</td>
+          <td>${greenxyYVerification.x}</td>
+          <td>${AppShell.renderError(errors.green.x)}</td>
+          <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.green.x))}</td>
+        </tr>
+        <tr class="g">
+          <th>y</th>
+          <td>${greenxyYReference.y}</td>
+          <td>${greenxyYVerification.y}</td>
+          <td>${AppShell.renderError(errors.green.y)}</td>
+          <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.green.y))}</td>
+        </tr>
+        <tr class="g">
+          <th>Y</th>
+          <td>${greenxyYReference.Y}</td>
+          <td>${greenxyYVerification.Y}</td>
+          <td>${AppShell.renderError(errors.green.Y)}</td>
+          <td>${AppShell.renderNistPassFail(AppShell.passesNistY(errors.green.Y))}</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr class="b">
+          <th>Blue</th>
+          <th>Reference</th>
+          <th>Profile</th>
+          <th>Error</th>
+          <th>Pass/Fail</th>
+        </tr>
+        <tr class="b">
+          <th>x</th>
+          <td>${bluexyYReference.x}</td>
+          <td>${bluexyYVerification.x}</td>
+          <td>${AppShell.renderError(errors.blue.x)}</td>
+          <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.blue.x))}</td>
+        </tr>
+        <tr class="b">
+          <th>y</th>
+          <td>${bluexyYReference.y}</td>
+          <td>${bluexyYVerification.y}</td>
+          <td>${AppShell.renderError(errors.blue.y)}</td>
+          <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.blue.y))}</td>
+        </tr>
+        <tr class="b">
+          <th>Y</th>
+          <td>${bluexyYReference.Y}</td>
+          <td>${bluexyYVerification.Y}</td>
+          <td>${AppShell.renderError(errors.blue.Y)}</td>
+          <td>${AppShell.renderNistPassFail(AppShell.passesNistY(errors.blue.Y))}</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr class="w">
+          <th>White</th>
+          <th>Reference</th>
+          <th>Profile</th>
+          <th>Error</th>
+          <th>Pass/Fail</th>
+        </tr>
+        <tr class="w">
+          <th>x</th>
+          <td>${whitexyYReference.x}</td>
+          <td>${whitexyYVerification.x}</td>
+          <td>${AppShell.renderError(errors.white.x)}</td>
+          <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.white.x))}</td>
+        </tr>
+        <tr class="w">
+          <th>y</th>
+          <td>${whitexyYReference.y}</td>
+          <td>${whitexyYVerification.y}</td>
+          <td>${AppShell.renderError(errors.white.y)}</td>
+          <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.white.y))}</td>
+        </tr>
+        <tr class="w">
+          <th>Y</th>
+          <td>${whitexyYReference.Y}</td>
+          <td>${whitexyYVerification.Y}</td>
+          <td>${AppShell.renderError(errors.white.Y)}</td>
+          <td>${AppShell.renderNistPassFail(AppShell.passesNistY(errors.white.Y))}</td>
+        </tr>
       </table>
     `;
   }
@@ -302,5 +497,29 @@ export class AppShell extends LitElement {
       blue: bluexyY,
       white: whitexyY,
     };
+  }
+
+  private static passesNistxy(value: number) {
+    return Math.abs(value) <= 0.001;
+  }
+
+  private static passesNistY(value: number) {
+    return Math.abs(value) <= 1.5;
+  }
+
+  private static renderNistPassFail(passes: boolean) {
+    if (passes) {
+      return html`<span class="success">Pass</span>`;
+    }
+
+    return html`<span class="error">Fail</span>`;
+  }
+
+  private static renderError(value: number) {
+    if (value < 0) {
+      return html`<span class="error">${value}</span>`;
+    }
+
+    return value;
   }
 }

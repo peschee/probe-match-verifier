@@ -1,0 +1,57 @@
+$color-danger: #dc2626;
+$color-success: #15803f;
+
+$color-background-r: #fee2e2;
+$color-background-g: #dbfce7;
+$color-background-b: #e0f2fe;
+$color-background-w: #f9f9f9;
+
+.success {
+  color: $color-success;
+}
+
+.error {
+  color: $color-danger;
+}
+
+table {
+  font-family: monospace;
+
+  td {
+    padding: 0.25rem;
+
+    &.r {
+      background: $color-background-r;
+    }
+
+    &.g {
+      background: $color-background-g;
+    }
+
+    &.b {
+      background: $color-background-b;
+    }
+
+    &.w {
+      background: $color-background-w;
+    }
+  }
+
+  tr {
+    &.r td {
+      background: $color-background-r;
+    }
+
+    &.g td {
+      background: $color-background-g;
+    }
+
+    &.b td {
+      background: $color-background-b;
+    }
+
+    &.w td {
+      background: $color-background-w;
+    }
+  }
+}
