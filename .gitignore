@@ -3,3 +3,4 @@
 /dist
 *.bcs
 *.bpd
+/coverage
