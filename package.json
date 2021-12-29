@@ -2,7 +2,6 @@
   "name": "probe-matcher",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "source": "src/index.html",
   "browserslist": [
     "> 0.5%",
@@ -26,9 +25,11 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
+    "@swc/helpers": "^0.3.2",
     "browser-fs-access": "^0.23.0",
     "cie-colorconverter": "^2.0.1",
     "fast-xml-parser": "^4.0.0-beta.8",
-    "lit": "^2.0.2"
+    "lit": "^2.0.2",
+    "regenerator-runtime": "^0.13.9"
   }
 }
