@@ -4,10 +4,17 @@ import { classMap } from 'lit/directives/class-map.js';
 import { fileOpen, supported } from 'browser-fs-access';
 
 import styles from './app-shell.scss?inline';
-import { relativeDifference } from './util/functions';
+import { formatNumber, relativeDifference } from './util/functions';
 import { ColourSpaceXML, RGBW, xyY } from './util/ColourSpaceXML';
 
 const DEBUG = import.meta.env.DEV;
+
+type xyYErrors = {
+  red: xyY;
+  green: xyY;
+  blue: xyY;
+  white: xyY;
+};
 
 @customElement('app-shell')
 export class AppShell extends LitElement {
@@ -141,7 +148,7 @@ export class AppShell extends LitElement {
                       w: colIndex === 3,
                     })}"
                   >
-                    ${col}
+                    ${formatNumber(col, 7)}
                   </td>`
               )}
             </tr>`
@@ -211,22 +218,22 @@ export class AppShell extends LitElement {
         </tr>
         <tr class="r">
           <th>x</th>
-          <td>${redxyYReference.x}</td>
-          <td>${redxyYVerification.x}</td>
+          <td>${formatNumber(redxyYReference.x)}</td>
+          <td>${formatNumber(redxyYVerification.x)}</td>
           <td>${AppShell.renderError(errors.red.x)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.red.x))}</td>
         </tr>
         <tr class="r">
           <th>y</th>
-          <td>${redxyYReference.y}</td>
-          <td>${redxyYVerification.y}</td>
+          <td>${formatNumber(redxyYReference.y)}</td>
+          <td>${formatNumber(redxyYVerification.y)}</td>
           <td>${AppShell.renderError(errors.red.y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.red.y))}</td>
         </tr>
         <tr class="r">
           <th>Y</th>
-          <td>${redxyYReference.Y}</td>
-          <td>${redxyYVerification.Y}</td>
+          <td>${formatNumber(redxyYReference.Y)}</td>
+          <td>${formatNumber(redxyYVerification.Y)}</td>
           <td>${AppShell.renderError(errors.red.Y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistY(errors.red.Y))}</td>
         </tr>
@@ -242,22 +249,22 @@ export class AppShell extends LitElement {
         </tr>
         <tr class="g">
           <th>x</th>
-          <td>${greenxyYReference.x}</td>
-          <td>${greenxyYVerification.x}</td>
+          <td>${formatNumber(greenxyYReference.x)}</td>
+          <td>${formatNumber(greenxyYVerification.x)}</td>
           <td>${AppShell.renderError(errors.green.x)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.green.x))}</td>
         </tr>
         <tr class="g">
           <th>y</th>
-          <td>${greenxyYReference.y}</td>
-          <td>${greenxyYVerification.y}</td>
+          <td>${formatNumber(greenxyYReference.y)}</td>
+          <td>${formatNumber(greenxyYVerification.y)}</td>
           <td>${AppShell.renderError(errors.green.y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.green.y))}</td>
         </tr>
         <tr class="g">
           <th>Y</th>
-          <td>${greenxyYReference.Y}</td>
-          <td>${greenxyYVerification.Y}</td>
+          <td>${formatNumber(greenxyYReference.Y)}</td>
+          <td>${formatNumber(greenxyYVerification.Y)}</td>
           <td>${AppShell.renderError(errors.green.Y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistY(errors.green.Y))}</td>
         </tr>
@@ -273,22 +280,22 @@ export class AppShell extends LitElement {
         </tr>
         <tr class="b">
           <th>x</th>
-          <td>${bluexyYReference.x}</td>
-          <td>${bluexyYVerification.x}</td>
+          <td>${formatNumber(bluexyYReference.x)}</td>
+          <td>${formatNumber(bluexyYVerification.x)}</td>
           <td>${AppShell.renderError(errors.blue.x)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.blue.x))}</td>
         </tr>
         <tr class="b">
           <th>y</th>
-          <td>${bluexyYReference.y}</td>
-          <td>${bluexyYVerification.y}</td>
+          <td>${formatNumber(bluexyYReference.y)}</td>
+          <td>${formatNumber(bluexyYVerification.y)}</td>
           <td>${AppShell.renderError(errors.blue.y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.blue.y))}</td>
         </tr>
         <tr class="b">
           <th>Y</th>
-          <td>${bluexyYReference.Y}</td>
-          <td>${bluexyYVerification.Y}</td>
+          <td>${formatNumber(bluexyYReference.Y)}</td>
+          <td>${formatNumber(bluexyYVerification.Y)}</td>
           <td>${AppShell.renderError(errors.blue.Y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistY(errors.blue.Y))}</td>
         </tr>
@@ -304,22 +311,22 @@ export class AppShell extends LitElement {
         </tr>
         <tr class="w">
           <th>x</th>
-          <td>${whitexyYReference.x}</td>
-          <td>${whitexyYVerification.x}</td>
+          <td>${formatNumber(whitexyYReference.x)}</td>
+          <td>${formatNumber(whitexyYVerification.x)}</td>
           <td>${AppShell.renderError(errors.white.x)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.white.x))}</td>
         </tr>
         <tr class="w">
           <th>y</th>
-          <td>${whitexyYReference.y}</td>
-          <td>${whitexyYVerification.y}</td>
+          <td>${formatNumber(whitexyYReference.y)}</td>
+          <td>${formatNumber(whitexyYVerification.y)}</td>
           <td>${AppShell.renderError(errors.white.y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.white.y))}</td>
         </tr>
         <tr class="w">
           <th>Y</th>
-          <td>${whitexyYReference.Y}</td>
-          <td>${whitexyYVerification.Y}</td>
+          <td>${formatNumber(whitexyYReference.Y)}</td>
+          <td>${formatNumber(whitexyYVerification.Y)}</td>
           <td>${AppShell.renderError(errors.white.Y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistY(errors.white.Y))}</td>
         </tr>
@@ -413,9 +420,9 @@ export class AppShell extends LitElement {
 
   private static renderError(value: number) {
     if (value < 0) {
-      return html`<span class="error">${value}</span>`;
+      return html`<span class="error">${formatNumber(value)}</span>`;
     }
 
-    return value;
+    return formatNumber(value);
   }
 }
