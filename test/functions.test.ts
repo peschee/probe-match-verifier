@@ -1,5 +1,5 @@
 import { assert, test } from 'vitest';
-import { relativeDifference } from '../src/helpers';
+import { relativeDifference } from '../src/util/functions';
 
 test('relativeDifference()', async () => {
   assert.equal(relativeDifference(10, 5), -100);

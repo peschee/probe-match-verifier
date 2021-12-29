@@ -1,15 +1,13 @@
 import { html, LitElement, nothing, PropertyValues, unsafeCSS } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { ColorConverter } from 'cie-colorconverter';
 import { fileOpen, supported } from 'browser-fs-access';
-import { XMLParser, XMLValidator } from 'fast-xml-parser';
 
 import styles from './app-shell.scss?inline';
-import { relativeDifference } from './helpers';
+import { relativeDifference } from './util/functions';
+import { ColourSpaceXML, RGBW, xyY } from './util/ColourSpaceXML';
 
-const DEBUG = true;
-// const DEBUG = process.env.NODE_ENV !== 'production';
+const DEBUG = import.meta.env.DEV;
 
 @customElement('app-shell')
 export class AppShell extends LitElement {
@@ -28,13 +26,9 @@ export class AppShell extends LitElement {
   @state()
   xyYErrors?: xyYErrors;
 
-  private xmlParser = new XMLParser({
-    ignoreAttributes: false,
-  });
-
-  private colorConverter = new ColorConverter();
-
   static styles = unsafeCSS(styles);
+
+  private csXML = new ColourSpaceXML();
 
   constructor() {
     super();
@@ -61,7 +55,7 @@ export class AppShell extends LitElement {
     super.updated(changedProperties);
 
     if (changedProperties.has('referenceBpd') && this.referenceBpd) {
-      this.referenceRGBW = this.getRGBWFromBpd(await this.referenceBpd.text());
+      this.referenceRGBW = this.csXML.getRGBWFromBpd(await this.referenceBpd.text());
       this.requestUpdate('referenceRGBW');
 
       if (DEBUG) {
@@ -71,7 +65,7 @@ export class AppShell extends LitElement {
     }
 
     if (changedProperties.has('verificationBcs') && this.verificationBcs) {
-      this.verificationRGBW = this.getRGBWFromBcs(await this.verificationBcs.text());
+      this.verificationRGBW = this.csXML.getRGBWFromBcs(await this.verificationBcs.text());
       this.requestUpdate('verificationRGBW');
 
       if (DEBUG) {
@@ -135,11 +129,11 @@ export class AppShell extends LitElement {
         </tr>
         ${matrix.map(
           (row, rowIndex) =>
-            html`<tr>
+            html` <tr>
               <td>${AppShell.getRowLabelForIndex(rowIndex)}</td>
               ${row.map(
                 (col, colIndex) =>
-                  html`<td
+                  html` <td
                     class="${classMap({
                       r: colIndex === 0,
                       g: colIndex === 1,
@@ -333,54 +327,6 @@ export class AppShell extends LitElement {
     `;
   }
 
-  private getRGBWFromBpd(bpdXml: string) {
-    if (!XMLValidator.validate(bpdXml)) {
-      console.error('Could not validate BDP XML.');
-      return;
-    }
-
-    const {
-      builder_color_space: {
-        head: { L, x, y },
-      },
-    } = this.xmlParser.parse(bpdXml);
-
-    const matrix = [
-      [x['@_red'], x['@_green'], x['@_blue'], x['@_white']],
-      [y['@_red'], y['@_green'], y['@_blue'], y['@_white']],
-      [L['@_red'], L['@_green'], L['@_blue'], L['@_white']],
-    ];
-
-    if (DEBUG) {
-      console.log('getRGBWFromBpd');
-      console.log('head', this.xmlParser.parse(bpdXml));
-      console.log('getRGBWFromBpd');
-      console.table(matrix);
-    }
-
-    return matrix;
-  }
-
-  private getRGBWFromBcs(bcsXml: string) {
-    if (!XMLValidator.validate(bcsXml)) {
-      console.error('Could not validate BCS XML.');
-      return;
-    }
-
-    const {
-      builder_color_space: {
-        data: { patch: patches },
-      },
-    } = this.xmlParser.parse(bcsXml);
-
-    if (DEBUG) {
-      console.log('getRGBWFromBcs');
-      console.log('patches', patches);
-    }
-
-    return this.getRGBWMatrixFromPatches(patches);
-  }
-
   private static getRowLabelForIndex(index: number) {
     switch (index) {
       case 0:
@@ -392,56 +338,6 @@ export class AppShell extends LitElement {
       default:
         return 'n/a';
     }
-  }
-
-  private getRGBWMatrixFromPatches(patches: Array<BscPatch> = []): RGBW | undefined {
-    if (patches.length < 1) {
-      return;
-    }
-
-    // Filter out black & white patches
-    const colorPatches = patches
-      .filter((p) => !(p.stimuli.red === 0 && p.stimuli.green === 0 && p.stimuli.blue === 0))
-      .filter((p) => !(p.stimuli.red === 1 && p.stimuli.green === 1 && p.stimuli.blue === 1));
-
-    // Get XYZ for each color
-    const {
-      results: { XYZ: redXYZ },
-    } = colorPatches.filter((p) => p.stimuli.green === 0 && p.stimuli.blue === 0).shift()!;
-    const {
-      results: { XYZ: greenXYZ },
-    } = colorPatches.filter((p) => p.stimuli.red === 0 && p.stimuli.blue === 0).shift()!;
-    const {
-      results: { XYZ: blueXYZ },
-    } = colorPatches.filter((p) => p.stimuli.red === 0 && p.stimuli.green === 0).shift()!;
-
-    // Get XYZ for white
-    const [
-      {
-        results: { XYZ: whiteXYZ },
-      },
-    ] = patches.filter(
-      (p) => p.stimuli.red !== 0 && p.stimuli.red !== 1 && p.stimuli.green !== 0 && p.stimuli.green !== 1 && p.stimuli.blue !== 0 && p.stimuli.blue !== 1
-    );
-
-    if (DEBUG) {
-      console.log('redXYZ', redXYZ);
-      console.log('greenXYZ', greenXYZ);
-      console.log('blueXYZ', blueXYZ);
-      console.log('whiteXYZ', whiteXYZ);
-    }
-
-    // Convert to XYZ --> xyY
-    const redxyY = this.colorConverter.XYZ_to_xyY([redXYZ.X, redXYZ.Y, redXYZ.Z]);
-    const greenxyY = this.colorConverter.XYZ_to_xyY([greenXYZ.X, greenXYZ.Y, greenXYZ.Z]);
-    const bluexyY = this.colorConverter.XYZ_to_xyY([blueXYZ.X, blueXYZ.Y, blueXYZ.Z]);
-    const whitexyY = this.colorConverter.XYZ_to_xyY([whiteXYZ.X, whiteXYZ.Y, whiteXYZ.Z]);
-
-    return [
-      [redxyY[0], greenxyY[0], bluexyY[0], whitexyY[0]],
-      [redxyY[1], greenxyY[1], bluexyY[1], whitexyY[1]],
-      [redxyY[2], greenxyY[2], bluexyY[2], whitexyY[2]],
-    ];
   }
 
   private static computexyYErrors(reference: RGBW = [], verification: RGBW = []): xyYErrors | undefined {
