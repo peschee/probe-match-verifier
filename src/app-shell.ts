@@ -5,25 +5,10 @@ import { fileOpen, supported } from 'browser-fs-access';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 
 import styles from 'bundle-text:./app-shell.scss';
+import { relativeDifference } from './helpers';
 
-type RGBW = Array<Array<number>>;
-
-type XYZ = {
-  X: number;
-  Y: number;
-  Z: number;
-};
-
-type BscPatch = {
-  results: {
-    XYZ: XYZ;
-  };
-  stimuli: {
-    red: number;
-    green: number;
-    blue: number;
-  };
-};
+const DEBUG = false;
+// const DEBUG = process.env.NODE_ENV !== 'production';
 
 @customElement('app-shell')
 export class AppShell extends LitElement {
@@ -39,6 +24,9 @@ export class AppShell extends LitElement {
   @state()
   verificationRGBW?: RGBW;
 
+  @state()
+  xyYErrors?: Record<string, any>;
+
   private xmlParser = new XMLParser({
     ignoreAttributes: false,
   });
@@ -50,14 +38,11 @@ export class AppShell extends LitElement {
   constructor() {
     super();
 
-    if (supported) {
-      console.log('Using the File System Access API.');
-    } else {
-      console.log('Using the fallback implementation.');
+    if (DEBUG) {
+      console.log(supported ? 'Using the File System Access API.' : 'Using the fallback implementation.');
     }
   }
 
-  // Render the UI as a function of component state
   render() {
     return html`
       <p>Reference BPD File: <a href="#" @click="${this.openReferenceBpdFile}">Open BPD</a> ${this.referenceBpd?.name}</p>
@@ -73,11 +58,30 @@ export class AppShell extends LitElement {
     if (changedProperties.has('referenceBpd') && this.referenceBpd) {
       this.referenceRGBW = this.getRGBWFromBpd(await this.referenceBpd.text());
       this.requestUpdate('referenceRGBW');
+
+      if (DEBUG) {
+        console.log('referenceRGBW');
+        console.table(this.referenceRGBW);
+      }
     }
 
     if (changedProperties.has('verificationBcs') && this.verificationBcs) {
       this.verificationRGBW = this.getRGBWFromBcs(await this.verificationBcs.text());
       this.requestUpdate('verificationRGBW');
+
+      if (DEBUG) {
+        console.log('verificationRGBW');
+        console.table(this.verificationRGBW);
+      }
+    }
+
+    if (changedProperties.has('referenceRGBW') || changedProperties.has('verificationRGBW')) {
+      this.xyYErrors = AppShell.computexyYErrors(this.referenceRGBW, this.verificationRGBW);
+
+      if (DEBUG) {
+        console.log('xyYErrors');
+        console.table(this.xyYErrors);
+      }
     }
   }
 
@@ -90,7 +94,9 @@ export class AppShell extends LitElement {
     this.verificationBcs = blob;
     this.requestUpdate('verificationBcs');
 
-    console.log('openVerificationBcsFile', blob);
+    if (DEBUG) {
+      console.log('openVerificationBcsFile', blob);
+    }
   }
 
   private async openReferenceBpdFile() {
@@ -102,7 +108,9 @@ export class AppShell extends LitElement {
     this.referenceBpd = blob;
     this.requestUpdate('referenceBpd');
 
-    console.log('openReferenceBpdFile', blob);
+    if (DEBUG) {
+      console.log('openReferenceBpdFile', blob);
+    }
   }
 
   private renderRGBW(matrix: RGBW) {
@@ -142,14 +150,18 @@ export class AppShell extends LitElement {
       },
     } = this.xmlParser.parse(bpdXml);
 
-    console.log('head', this.xmlParser.parse(bpdXml));
-
     const matrix = [
       [x['@_red'], x['@_green'], x['@_blue'], x['@_white']],
       [y['@_red'], y['@_green'], y['@_blue'], y['@_white']],
       [L['@_red'], L['@_green'], L['@_blue'], L['@_white']],
     ];
-    console.table(matrix);
+
+    if (DEBUG) {
+      console.log('getRGBWFromBpd');
+      console.log('head', this.xmlParser.parse(bpdXml));
+      console.log('getRGBWFromBpd');
+      console.table(matrix);
+    }
 
     return matrix;
   }
@@ -166,7 +178,10 @@ export class AppShell extends LitElement {
       },
     } = this.xmlParser.parse(bcsXml);
 
-    console.log('patches', patches);
+    if (DEBUG) {
+      console.log('getRGBWFromBcs');
+      console.log('patches', patches);
+    }
 
     return this.getRGBWMatrixFromPatches(patches);
   }
@@ -214,10 +229,12 @@ export class AppShell extends LitElement {
       (p) => p.stimuli.red !== 0 && p.stimuli.red !== 1 && p.stimuli.green !== 0 && p.stimuli.green !== 1 && p.stimuli.blue !== 0 && p.stimuli.blue !== 1
     );
 
-    console.log('redXYZ', redXYZ);
-    console.log('greenXYZ', greenXYZ);
-    console.log('blueXYZ', blueXYZ);
-    console.log('whiteXYZ', whiteXYZ);
+    if (DEBUG) {
+      console.log('redXYZ', redXYZ);
+      console.log('greenXYZ', greenXYZ);
+      console.log('blueXYZ', blueXYZ);
+      console.log('whiteXYZ', whiteXYZ);
+    }
 
     // Convert to XYZ --> xyY
     const redxyY = this.colorConverter.XYZ_to_xyY([redXYZ.X, redXYZ.Y, redXYZ.Z]);
@@ -230,5 +247,60 @@ export class AppShell extends LitElement {
       [redxyY[1], greenxyY[1], bluexyY[1], whitexyY[1]],
       [redxyY[2], greenxyY[2], bluexyY[2], whitexyY[2]],
     ];
+  }
+
+  private static computexyYErrors(reference: RGBW = [], verification: RGBW = []): xyYErrors | undefined {
+    if (reference.length < 1 || verification.length < 1) {
+      return;
+    }
+
+    if (DEBUG) {
+      console.log('Red x: ', reference[0][0], verification[0][0]);
+      console.log('Red y: ', reference[1][0], verification[1][0]);
+      console.log('Red Y: ', reference[2][0], verification[2][0]);
+
+      console.log('Green x: ', reference[0][1], verification[0][1]);
+      console.log('Green y: ', reference[1][1], verification[1][1]);
+      console.log('Green Y: ', reference[2][1], verification[2][1]);
+
+      console.log('Blue x: ', reference[0][2], verification[0][2]);
+      console.log('Blue y: ', reference[1][2], verification[1][2]);
+      console.log('Blue Y: ', reference[2][2], verification[2][2]);
+
+      console.log('White x: ', reference[0][3], verification[0][3]);
+      console.log('White y: ', reference[1][3], verification[1][3]);
+      console.log('White Y: ', reference[2][3], verification[2][3]);
+    }
+
+    const redxyY: xyY = {
+      x: reference[0][0] - verification[0][0],
+      y: reference[1][0] - verification[1][0],
+      Y: relativeDifference(reference[2][0], verification[2][0]),
+    };
+
+    const greenxyY: xyY = {
+      x: reference[0][1] - verification[0][1],
+      y: reference[1][1] - verification[1][1],
+      Y: relativeDifference(reference[2][1], verification[2][1]),
+    };
+
+    const bluexyY: xyY = {
+      x: reference[0][2] - verification[0][2],
+      y: reference[1][2] - verification[1][2],
+      Y: relativeDifference(reference[2][2], verification[2][2]),
+    };
+
+    const whitexyY: xyY = {
+      x: reference[0][3] - verification[0][3],
+      y: reference[1][3] - verification[1][3],
+      Y: relativeDifference(reference[2][3], verification[2][3]),
+    };
+
+    return {
+      red: redxyY,
+      green: greenxyY,
+      blue: bluexyY,
+      white: whitexyY,
+    };
   }
 }
