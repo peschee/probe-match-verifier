@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
 import path from 'node:path';
+import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 // noinspection JSUnusedGlobalSymbols
@@ -14,11 +14,6 @@ export default defineConfig({
       scss: {
         additionalData: `@import "~@/meta.scss";`,
       },
-    },
-  },
-  test: {
-    coverage: {
-      reporter: ['text', 'html'],
     },
   },
 });

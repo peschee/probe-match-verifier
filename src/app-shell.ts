@@ -2,10 +2,16 @@ import { html, LitElement, nothing, PropertyValues, unsafeCSS } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { fileOpen, supported } from 'browser-fs-access';
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
+import shoelaceStyles from '@shoelace-style/shoelace/dist/themes/light.styles.js';
 
 import styles from './app-shell.scss?inline';
 import { formatNumber, relativeDifference } from './util/functions';
 import { ColourSpaceXML, RGBW, xyY } from './util/ColourSpaceXML';
+
+import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
+setBasePath('/shoelace');
 
 const DEBUG = import.meta.env.DEV;
 
@@ -33,7 +39,7 @@ export class AppShell extends LitElement {
   @state()
   xyYErrors?: xyYErrors;
 
-  static styles = unsafeCSS(styles);
+  static styles = [shoelaceStyles, unsafeCSS(styles)];
 
   private csXML = new ColourSpaceXML();
 
@@ -47,6 +53,8 @@ export class AppShell extends LitElement {
 
   render() {
     return html`
+      <sl-button>Yay!</sl-button>
+      <sl-icon-button name="gear" label="Settings"></sl-icon-button>
       <h1>Probe Match Verification</h1>
       <p>Reference BPD File: <a href="#" @click="${this.openReferenceBpdFile}">Open BPD</a> ${this.referenceBpd?.name}</p>
       ${this.referenceRGBW ? this.renderRGBW(this.referenceRGBW) : nothing}
