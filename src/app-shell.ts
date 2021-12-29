@@ -1,15 +1,15 @@
-import { html, LitElement, nothing, PropertyValues, unsafeCSS } from 'lit';
+import { html, LitElement, nothing, PropertyValues } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ColorConverter } from 'cie-colorconverter';
 import { fileOpen, supported } from 'browser-fs-access';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 
-import styles from 'bundle-text:./app-shell.scss';
+import styles from './app-shell.scss';
 import { relativeDifference } from './helpers';
 
-// const DEBUG = false;
-const DEBUG = process.env.NODE_ENV !== 'production';
+const DEBUG = true;
+// const DEBUG = process.env.NODE_ENV !== 'production';
 
 @customElement('app-shell')
 export class AppShell extends LitElement {
@@ -34,7 +34,7 @@ export class AppShell extends LitElement {
 
   private colorConverter = new ColorConverter();
 
-  static styles = unsafeCSS(styles);
+  static styles = styles;
 
   constructor() {
     super();

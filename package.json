@@ -9,8 +9,9 @@
     "not dead"
   ],
   "scripts": {
-    "start": "parcel --no-hmr",
-    "build": "parcel build",
+    "start": "vite",
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc && vite build",
     "lint": "run-p lint:*",
     "lint:types": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,21 +20,19 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@parcel/transformer-inline-string": "^2.0.1",
-    "@parcel/transformer-sass": "^2.0.1",
     "npm-run-all": "^4.1.5",
-    "parcel": "^2.0.1",
     "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-postcss-lit": "^2.0.0",
+    "sass": "^1.45.1",
     "ts-lit-plugin": "^1.2.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "vite": "^2.7.9"
   },
   "dependencies": {
-    "@swc/helpers": "^0.3.2",
     "browser-fs-access": "^0.23.0",
     "cie-colorconverter": "^2.0.1",
     "fast-xml-parser": "^4.0.0-beta.8",
-    "lit": "^2.0.2",
-    "regenerator-runtime": "^0.13.9",
-    "xml2js": "^0.4.23"
+    "lit": "^2.0.2"
   }
 }
