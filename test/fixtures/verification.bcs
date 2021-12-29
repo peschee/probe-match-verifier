@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<builder_color_space name="Meter Verification #5_1" version="2">
+    <head>
+        <created>2021-04-05</created>
+        <target_gamut>Rec709</target_gamut>
+        <target_luma_max>124.000000000000</target_luma_max>
+        <target_luma_min>0.000010000000</target_luma_min>
+        <stabilisation_enable>True</stabilisation_enable>
+        <stabilisation_value>5.000000000000</stabilisation_value>
+        <patch_scale_min>16</patch_scale_min>
+        <patch_scale_max>255</patch_scale_max>
+        <patch_area>10.240000000000</patch_area>
+        <patch_pos_x>50.000000000000</patch_pos_x>
+        <patch_pos_y>50.000000000000</patch_pos_y>
+        <preroll_value>0.700000000000</preroll_value>
+    </head>
+    <data frames="6">
+        <patch frame="1">
+            <stimuli>
+                <red>0.000000000000</red>
+                <green>0.000000000000</green>
+                <blue>0.000000000000</blue>
+            </stimuli>
+            <results>
+                <XYZ>
+                    <X>0.000000000000</X>
+                    <Y>0.000000000000</Y>
+                    <Z>0.000000000000</Z>
+                </XYZ>
+            </results>
+        </patch>
+        <patch frame="2">
+            <stimuli>
+                <red>1.000000000000</red>
+                <green>1.000000000000</green>
+                <blue>1.000000000000</blue>
+            </stimuli>
+            <results>
+                <XYZ>
+                    <X>117.115606011081</X>
+                    <Y>123.190919104855</Y>
+                    <Z>134.292586633791</Z>
+                </XYZ>
+            </results>
+        </patch>
+        <patch frame="3">
+            <stimuli>
+                <red>0.941422594142</red>
+                <green>0.000000000000</green>
+                <blue>0.000000000000</blue>
+            </stimuli>
+            <results>
+                <XYZ>
+                    <X>50.080456544802</X>
+                    <Y>23.999465510573</Y>
+                    <Z>-0.030842717841</Z>
+                </XYZ>
+            </results>
+        </patch>
+        <patch frame="4">
+            <stimuli>
+                <red>0.000000000000</red>
+                <green>0.941422594142</green>
+                <blue>0.000000000000</blue>
+            </stimuli>
+            <results>
+                <XYZ>
+                    <X>30.367147052357</X>
+                    <Y>74.709215517936</Y>
+                    <Z>6.166862763927</Z>
+                </XYZ>
+            </results>
+        </patch>
+        <patch frame="5">
+            <stimuli>
+                <red>0.000000000000</red>
+                <green>0.000000000000</green>
+                <blue>0.941422594142</blue>
+            </stimuli>
+            <results>
+                <XYZ>
+                    <X>19.496196892883</X>
+                    <Y>7.103622034514</Y>
+                    <Z>109.495132650987</Z>
+                </XYZ>
+            </results>
+        </patch>
+        <patch frame="6">
+            <stimuli>
+                <red>0.941422594142</red>
+                <green>0.941422594142</green>
+                <blue>0.941422594142</blue>
+            </stimuli>
+            <results>
+                <XYZ>
+                    <X>103.589219118634</X>
+                    <Y>109.183160445674</Y>
+                    <Z>118.655229991199</Z>
+                </XYZ>
+            </results>
+        </patch>
+    </data>
+</builder_color_space>

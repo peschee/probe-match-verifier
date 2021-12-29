@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<builder_color_space name="[1081155] i1Pro 2 LG CX 77 #5" version="2">
+    <head>
+        <x red="0.676231" green="0.272918" blue="0.143255" white="0.312448" />
+        <y red="0.324142" green="0.67135" blue="0.0522131" white="0.329491" />
+        <L red="24.0496" green="74.8948" blue="7.11881" white="109.476" />
+        <gamma>1.000000</gamma>
+    </head>
+</builder_color_space>
