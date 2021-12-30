@@ -4,7 +4,6 @@ import { classMap } from 'lit/directives/class-map.js';
 import { fileOpen, supported } from 'browser-fs-access';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
-import shoelaceStyles from '@shoelace-style/shoelace/dist/themes/light.styles.js';
 
 import styles from './app-shell.css?inline';
 import { formatNumber, relativeDifference } from './util/functions';
@@ -39,7 +38,7 @@ export class AppShell extends LitElement {
   @state()
   xyYErrors?: xyYErrors;
 
-  static styles = [shoelaceStyles, unsafeCSS(styles)];
+  static styles = unsafeCSS(styles);
 
   private csXML = new ColourSpaceXML();
 
