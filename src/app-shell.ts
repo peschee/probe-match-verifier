@@ -49,7 +49,9 @@ export class AppShell extends LitElement {
 
   static styles = unsafeCSS(styles);
 
-  private csXML = new ColourSpaceXML();
+  private csXML = new ColourSpaceXML({
+    debug: DEBUG,
+  });
 
   constructor() {
     super();
@@ -216,79 +218,79 @@ export class AppShell extends LitElement {
     const redxyYReference = {
       x: reference[0][0],
       y: reference[1][0],
-      Y: reference[1][0],
+      Y: reference[2][0],
     };
 
     const redxyYVerification = {
       x: verification[0][0],
       y: verification[1][0],
-      Y: verification[1][0],
+      Y: verification[2][0],
     };
 
     const greenxyYReference = {
       x: reference[0][1],
       y: reference[1][1],
-      Y: reference[1][1],
+      Y: reference[2][1],
     };
 
     const greenxyYVerification = {
       x: verification[0][1],
       y: verification[1][1],
-      Y: verification[1][1],
+      Y: verification[2][1],
     };
 
     const bluexyYReference = {
       x: reference[0][2],
       y: reference[1][2],
-      Y: reference[1][2],
+      Y: reference[2][2],
     };
 
     const bluexyYVerification = {
       x: verification[0][2],
       y: verification[1][2],
-      Y: verification[1][2],
+      Y: verification[2][2],
     };
 
     const whitexyYReference = {
       x: reference[0][3],
       y: reference[1][3],
-      Y: reference[1][3],
+      Y: reference[2][3],
     };
 
     const whitexyYVerification = {
       x: verification[0][3],
       y: verification[1][3],
-      Y: verification[1][3],
+      Y: verification[2][3],
     };
 
     return html`
-      <table>
+      <table class="profile-comparison">
         <tr class="r">
           <th>Red</th>
           <th>Reference</th>
           <th>Profile</th>
-          <th>Error</th>
+          <th class="align-percent">Error</th>
           <th>Pass/Fail</th>
         </tr>
         <tr class="r">
           <th>x</th>
           <td>${formatNumber(redxyYReference.x)}</td>
           <td>${formatNumber(redxyYVerification.x)}</td>
-          <td>${AppShell.renderError(errors.red.x)}</td>
+          <td class="align-percent">${AppShell.renderError(errors.red.x)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.red.x))}</td>
         </tr>
         <tr class="r">
           <th>y</th>
           <td>${formatNumber(redxyYReference.y)}</td>
           <td>${formatNumber(redxyYVerification.y)}</td>
-          <td>${AppShell.renderError(errors.red.y)}</td>
+          <td class="align-percent">${AppShell.renderError(errors.red.y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.red.y))}</td>
         </tr>
         <tr class="r">
           <th>Y</th>
           <td>${formatNumber(redxyYReference.Y)}</td>
           <td>${formatNumber(redxyYVerification.Y)}</td>
-          <td>${AppShell.renderError(errors.red.Y)}</td>
+          <td class="number-percent">${AppShell.renderError(errors.red.Y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistY(errors.red.Y))}</td>
         </tr>
       </table>
@@ -298,28 +300,28 @@ export class AppShell extends LitElement {
           <th>Green</th>
           <th>Reference</th>
           <th>Profile</th>
-          <th>Error</th>
+          <th class="align-percent">Error</th>
           <th>Pass/Fail</th>
         </tr>
         <tr class="g">
           <th>x</th>
           <td>${formatNumber(greenxyYReference.x)}</td>
           <td>${formatNumber(greenxyYVerification.x)}</td>
-          <td>${AppShell.renderError(errors.green.x)}</td>
+          <td class="align-percent">${AppShell.renderError(errors.green.x)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.green.x))}</td>
         </tr>
         <tr class="g">
           <th>y</th>
           <td>${formatNumber(greenxyYReference.y)}</td>
           <td>${formatNumber(greenxyYVerification.y)}</td>
-          <td>${AppShell.renderError(errors.green.y)}</td>
+          <td class="align-percent">${AppShell.renderError(errors.green.y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.green.y))}</td>
         </tr>
         <tr class="g">
           <th>Y</th>
           <td>${formatNumber(greenxyYReference.Y)}</td>
           <td>${formatNumber(greenxyYVerification.Y)}</td>
-          <td>${AppShell.renderError(errors.green.Y)}</td>
+          <td class="number-percent">${AppShell.renderError(errors.green.Y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistY(errors.green.Y))}</td>
         </tr>
       </table>
@@ -329,28 +331,28 @@ export class AppShell extends LitElement {
           <th>Blue</th>
           <th>Reference</th>
           <th>Profile</th>
-          <th>Error</th>
+          <th class="align-percent">Error</th>
           <th>Pass/Fail</th>
         </tr>
         <tr class="b">
           <th>x</th>
           <td>${formatNumber(bluexyYReference.x)}</td>
           <td>${formatNumber(bluexyYVerification.x)}</td>
-          <td>${AppShell.renderError(errors.blue.x)}</td>
+          <td class="align-percent">${AppShell.renderError(errors.blue.x)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.blue.x))}</td>
         </tr>
         <tr class="b">
           <th>y</th>
           <td>${formatNumber(bluexyYReference.y)}</td>
           <td>${formatNumber(bluexyYVerification.y)}</td>
-          <td>${AppShell.renderError(errors.blue.y)}</td>
+          <td class="align-percent">${AppShell.renderError(errors.blue.y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.blue.y))}</td>
         </tr>
         <tr class="b">
           <th>Y</th>
           <td>${formatNumber(bluexyYReference.Y)}</td>
           <td>${formatNumber(bluexyYVerification.Y)}</td>
-          <td>${AppShell.renderError(errors.blue.Y)}</td>
+          <td class="number-percent">${AppShell.renderError(errors.blue.Y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistY(errors.blue.Y))}</td>
         </tr>
       </table>
@@ -360,28 +362,28 @@ export class AppShell extends LitElement {
           <th>White</th>
           <th>Reference</th>
           <th>Profile</th>
-          <th>Error</th>
+          <th class="align-percent">Error</th>
           <th>Pass/Fail</th>
         </tr>
         <tr class="w">
           <th>x</th>
           <td>${formatNumber(whitexyYReference.x)}</td>
           <td>${formatNumber(whitexyYVerification.x)}</td>
-          <td>${AppShell.renderError(errors.white.x)}</td>
+          <td class="align-percent">${AppShell.renderError(errors.white.x)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.white.x))}</td>
         </tr>
         <tr class="w">
           <th>y</th>
           <td>${formatNumber(whitexyYReference.y)}</td>
           <td>${formatNumber(whitexyYVerification.y)}</td>
-          <td>${AppShell.renderError(errors.white.y)}</td>
+          <td class="align-percent">${AppShell.renderError(errors.white.y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistxy(errors.white.y))}</td>
         </tr>
         <tr class="w">
           <th>Y</th>
           <td>${formatNumber(whitexyYReference.Y)}</td>
           <td>${formatNumber(whitexyYVerification.Y)}</td>
-          <td>${AppShell.renderError(errors.white.Y)}</td>
+          <td class="number-percent">${AppShell.renderError(errors.white.Y)}</td>
           <td>${AppShell.renderNistPassFail(AppShell.passesNistY(errors.white.Y))}</td>
         </tr>
       </table>
@@ -466,10 +468,10 @@ export class AppShell extends LitElement {
 
   private static renderNistPassFail(passes: boolean) {
     if (passes) {
-      return html`<span class="success">Pass</span>`;
+      return html`<span class="text-success">Pass</span>`;
     }
 
-    return html`<span class="error">Fail</span>`;
+    return html`<span class="text-error">Fail</span>`;
   }
 
   private static renderError(value: number) {

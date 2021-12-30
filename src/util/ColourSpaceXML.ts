@@ -29,6 +29,12 @@ type BscPatch = {
 export class ColourSpaceXML {
   private colorConverter = new ColorConverter();
 
+  private isDebug = false;
+
+  constructor({ debug = false } = {}) {
+    this.isDebug = debug;
+  }
+
   private xmlParser = new XMLParser({
     ignoreAttributes: false,
   });
@@ -95,12 +101,12 @@ export class ColourSpaceXML {
       (p) => p.stimuli.red !== 0 && p.stimuli.red !== 1 && p.stimuli.green !== 0 && p.stimuli.green !== 1 && p.stimuli.blue !== 0 && p.stimuli.blue !== 1
     );
 
-    // if (DEBUG) {
-    //   console.log('redXYZ', redXYZ);
-    //   console.log('greenXYZ', greenXYZ);
-    //   console.log('blueXYZ', blueXYZ);
-    //   console.log('whiteXYZ', whiteXYZ);
-    // }
+    if (this.isDebug) {
+      console.log('redXYZ', redXYZ);
+      console.log('greenXYZ', greenXYZ);
+      console.log('blueXYZ', blueXYZ);
+      console.log('whiteXYZ', whiteXYZ);
+    }
 
     // Convert to XYZ --> xyY
     const redxyY = this.colorConverter.XYZ_to_xyY([redXYZ.X, redXYZ.Y, redXYZ.Z]);

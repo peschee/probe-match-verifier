@@ -1,15 +1,17 @@
 @import '@shoelace-style/shoelace/dist/themes/light.css';
 
 :host {
-  font-family: var(--sl-font-sans);
-  line-height: var(--sl-line-height-dense);
-  padding: var(--sl-spacing-small);
-  display: block;
+  --sl-font-mono: 'JetBrains Mono';
 
   --app-color-bg-r: var(--sl-color-red-50);
   --app-color-bg-g: var(--sl-color-green-50);
   --app-color-bg-b: var(--sl-color-blue-50);
   --app-color-bg-w: var(--sl-color-gray-50);
+
+  font-family: var(--sl-font-sans);
+  line-height: var(--sl-line-height-dense);
+  padding: var(--sl-spacing-small);
+  display: block;
 }
 
 h1,
@@ -34,11 +36,11 @@ h3 {
   font-weight: var(--sl-font-weight-semibold);
 }
 
-.success {
-  color: var(--sl-color-success-600);
+.text-success {
+  color: var(--sl-color-success-700);
 }
 
-.error {
+.text-error {
   color: var(--sl-color-danger-600);
 }
 
@@ -47,9 +49,24 @@ table {
   font-size: var(--sl-font-size-small);
 }
 
+th,
+td {
+  padding: var(--sl-spacing-2x-small) var(--sl-spacing-x-small);
+}
+
+.profile-comparison th {
+  text-align: right;
+}
+
 td {
   padding: 0.25rem;
   text-align: right;
+  font-weight: 600;
+}
+
+th {
+  font-weight: var(--sl-font-weight-normal);
+  font-family: var(--sl-font-sans);
 }
 
 td.r {
@@ -82,6 +99,15 @@ tr.b td {
 
 tr.w td {
   background: var(--app-color-bg-w);
+}
+
+.number-percent::after {
+  content: '%';
+}
+
+.align-percent::after {
+  content: '%';
+  color: white;
 }
 
 .table-responsive {
