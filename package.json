@@ -22,7 +22,7 @@
     "verification",
     "spectro"
   ],
-  "author": "Peter Siska <peschehimself@gmail.com>",
+  "author": "Peter Siska <63866+peschee@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^17.0.5",
