@@ -1,9 +1,11 @@
+/*@import 'flexboxgrid/css/flexboxgrid.css';*/
+
 :host {
   --app-spacing-header: var(--sl-spacing-medium);
 
   font-family: var(--sl-font-sans);
   line-height: var(--sl-line-height-dense);
-  padding: var(--sl-spacing-small);
+  padding: 0 var(--sl-spacing-small);
   display: block;
 }
 
@@ -64,7 +66,6 @@ ol li {
 table {
   font-family: var(--sl-font-mono);
   font-size: var(--sl-font-size-small);
-  /*border-collapse: collapse;*/
 }
 
 td {
@@ -197,10 +198,25 @@ tr.white td.clear {
 
 .app-content {
   padding-top: 80px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: var(--sl-spacing-x-large);
+  row-gap: var(--sl-spacing-x-large);
+}
+
+@media screen and (min-width: 900px) {
+  .app-content {
+    grid-template-columns: fit-content(20%) auto;
+  }
 }
 
 .table-section {
   margin-bottom: var(--sl-spacing-x-large);
+}
+
+.table-section:last-child {
+  margin-bottom: 0;
 }
 
 .table-section > .title {
@@ -211,8 +227,35 @@ tr.white td.clear {
   margin-bottom: var(--sl-spacing-small);
 }
 
-@media print {
-  .about-trigger {
+.app-name {
+  font-size: var(--sl-font-size-medium);
+}
+
+.app-name > .full {
+  display: none;
+}
+
+@media screen, print and (min-width: 512px) {
+  .app-name {
+    font-size: var(--sl-font-size-large);
+  }
+
+  .app-name > .full {
+    display: block;
+  }
+
+  .app-name > .short {
     display: none;
+  }
+}
+
+@media print {
+  .about-trigger,
+  .load-file-button {
+    display: none;
+  }
+
+  .app-header {
+    border: none;
   }
 }

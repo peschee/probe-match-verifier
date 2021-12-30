@@ -75,29 +75,37 @@ export class AppShell extends LitElement {
       <header class="app-header">
         <h1 class="title app-title">
           <img src="${logoUrl}" alt="" class="logo" />
-          <span class="text">${pkg.description}</span>
+          <span class="text app-name">
+            <span class="full">${pkg.description}</span>
+            <span class="short">${pkg.description.replace('ColourSpace', 'CS')}</span>
+          </span>
         </h1>
         <sl-icon-button name="info-circle" label="About" @click="${() => this.aboutDialog?.show()}" class="info about-trigger"></sl-icon-button>
       </header>
 
       <main class="app-content">
-        <div class="table-section">
-          <h2 class="title">
-            Reference File (.bpd)
-            <sl-button size="small" @click="${this.openReferenceBpdFile}"><sl-icon name="file-earmark-text"></sl-icon> Load</sl-button>
-          </h2>
-          ${this.referenceBpd ? html`<p class="file">${this.referenceBpd.name}</p>` : nothing}
-          ${this.referenceRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.referenceRGBW)}</div>` : nothing}
+        <div>
+          <div class="table-section">
+            <h2 class="title">
+              Reference File (.bpd)
+              <sl-button size="small" @click="${this.openReferenceBpdFile}" class="load-file-button"
+                ><sl-icon name="file-earmark-text"></sl-icon> Load</sl-button
+              >
+            </h2>
+            ${this.referenceBpd ? html`<p class="file">${this.referenceBpd.name}</p>` : nothing}
+            ${this.referenceRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.referenceRGBW)}</div>` : nothing}
+          </div>
+          <div class="table-section">
+            <h2 class="title">
+              Verification File (.bcs)
+              <sl-button size="small" @click="${this.openVerificationBcsFile}" class="load-file-button"
+                ><sl-icon name="file-earmark-text"></sl-icon> Load</sl-button
+              >
+            </h2>
+            ${this.verificationBcs ? html`<p class="file">${this.verificationBcs.name}</p>` : nothing}
+            ${this.verificationRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.verificationRGBW)}</div>` : nothing}
+          </div>
         </div>
-        <div class="table-section">
-          <h2 class="title">
-            Verification File (.bcs)
-            <sl-button size="small" @click="${this.openVerificationBcsFile}"><sl-icon name="file-earmark-text"></sl-icon> Load</sl-button>
-          </h2>
-          ${this.verificationBcs ? html`<p class="file">${this.verificationBcs.name}</p>` : nothing}
-          ${this.verificationRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.verificationRGBW)}</div>` : nothing}
-        </div>
-
         ${this.referenceRGBW && this.verificationRGBW && this.xyYErrors
           ? html` <div class="table-section">
               <h2 class="title">Profiled Meter Comparison</h2>

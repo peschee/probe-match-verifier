@@ -10,6 +10,12 @@
   --app-color-bg-w: var(--sl-color-gray-100);
 }
 
+@media screen and (max-width: 512px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
 @media print {
   :root {
     font-size: 12px;
