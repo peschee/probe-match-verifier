@@ -1,13 +1,4 @@
-@import '@shoelace-style/shoelace/dist/themes/light.css';
-
 :host {
-  --sl-font-mono: 'JetBrains Mono';
-
-  --app-color-bg-r: var(--sl-color-red-50);
-  --app-color-bg-g: var(--sl-color-green-50);
-  --app-color-bg-b: var(--sl-color-blue-50);
-  --app-color-bg-w: var(--sl-color-gray-50);
-
   font-family: var(--sl-font-sans);
   line-height: var(--sl-line-height-dense);
   padding: var(--sl-spacing-small);
@@ -107,7 +98,7 @@ tr.w td {
 
 .align-percent::after {
   content: '%';
-  color: white;
+  opacity: 0;
 }
 
 .table-responsive {

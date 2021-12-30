@@ -84,7 +84,7 @@ export class AppShell extends LitElement {
           <sl-button size="small" @click="${this.openReferenceBpdFile}">Load</sl-button>
         </h2>
         ${this.referenceBpd ? html`<p class="file">${this.referenceBpd.name}</p>` : nothing}
-        ${this.referenceRGBW ? this.renderRGBW(this.referenceRGBW) : nothing}
+        ${this.referenceRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.referenceRGBW)}</div>` : nothing}
       </div>
       <div class="table-section">
         <h2 class="title">
@@ -92,13 +92,13 @@ export class AppShell extends LitElement {
           <sl-button size="small" @click="${this.openVerificationBcsFile}">Load</sl-button>
         </h2>
         ${this.verificationBcs ? html`<p class="file">${this.verificationBcs.name}</p>` : nothing}
-        ${this.verificationRGBW ? this.renderRGBW(this.verificationRGBW) : nothing}
+        ${this.verificationRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.verificationRGBW)}</div>` : nothing}
       </div>
 
       ${this.referenceRGBW && this.verificationRGBW && this.xyYErrors
         ? html` <div class="table-section">
             <h2 class="title">Profiled Meter Comparison</h2>
-            ${AppShell.renderComparisonTable(this.referenceRGBW, this.verificationRGBW, this.xyYErrors)}
+            <div class="table-responsive">${AppShell.renderComparisonTable(this.referenceRGBW, this.verificationRGBW, this.xyYErrors)}</div>
           </div>`
         : nothing}
 

@@ -1,4 +1,14 @@
 @import 'normalize.css';
+@import '@shoelace-style/shoelace/dist/themes/light.css';
+
+:root {
+  --sl-font-mono: 'JetBrains Mono';
+
+  --app-color-bg-r: var(--sl-color-red-100);
+  --app-color-bg-g: var(--sl-color-green-100);
+  --app-color-bg-b: var(--sl-color-blue-100);
+  --app-color-bg-w: var(--sl-color-gray-100);
+}
 
 @font-face {
   font-family: 'JetBrains Mono';
