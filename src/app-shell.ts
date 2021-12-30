@@ -52,8 +52,6 @@ export class AppShell extends LitElement {
 
   render() {
     return html`
-      <sl-button>Yay!</sl-button>
-      <sl-icon-button name="gear" label="Settings"></sl-icon-button>
       <h1>ColourSpace Probe Match Verification</h1>
       <p>Reference BPD File: <a href="#" @click="${this.openReferenceBpdFile}">Open BPD</a> ${this.referenceBpd?.name}</p>
       ${this.referenceRGBW ? this.renderRGBW(this.referenceRGBW) : nothing}

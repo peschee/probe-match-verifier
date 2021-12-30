@@ -5,7 +5,7 @@
   "scripts": {
     "start": "vite",
     "clean": "rimraf dist coverage",
-    "build": "npm run clean && tsc && vite build",
+    "build": "npm run clean && tsc && vite build --base=/probe-match/",
     "preview": "vite preview",
     "lint": "run-p lint:*",
     "lint:types": "tsc --noEmit",
