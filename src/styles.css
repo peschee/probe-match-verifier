@@ -10,6 +10,12 @@
   --app-color-bg-w: var(--sl-color-gray-100);
 }
 
+@media print {
+  :root {
+    font-size: 12px;
+  }
+}
+
 @font-face {
   font-family: 'JetBrains Mono';
   src: url('../fonts/web/JetBrainsMono-Regular.woff2') format('woff2'), url('../fonts/ttf/JetBrainsMono-Regular.ttf') format('truetype');

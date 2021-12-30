@@ -14,6 +14,7 @@ import { capitalizeFirstLetter, formatNumber, relativeDifference } from './util/
 import { ColorName, ColourSpaceXML, RGBW, xyY } from './util/ColourSpaceXML';
 import styles from './app-shell.css?inline';
 import logoUrl from '../color-spectrum.png';
+import pkg from '../package.json';
 import readmeHtml from './../README.md';
 
 setBasePath(`${import.meta.env.BASE_URL}shoelace`);
@@ -73,23 +74,25 @@ export class AppShell extends LitElement {
     return html`
       <h1 class="app-title">
         <img src="${logoUrl}" alt="" class="logo" />
-        <span class="text">ColourSpace Probe Match Verification</span>
+        <span class="text">${pkg.description}</span>
       </h1>
-      <div class="table-section">
-        <h2 class="title">
-          Reference File (.bpd)
-          <sl-button size="small" @click="${this.openReferenceBpdFile}">Load</sl-button>
-        </h2>
-        ${this.referenceBpd ? html`<p class="file">${this.referenceBpd.name}</p>` : nothing}
-        ${this.referenceRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.referenceRGBW)}</div>` : nothing}
-      </div>
-      <div class="table-section">
-        <h2 class="title">
-          Verification File (.bcs)
-          <sl-button size="small" @click="${this.openVerificationBcsFile}">Load</sl-button>
-        </h2>
-        ${this.verificationBcs ? html`<p class="file">${this.verificationBcs.name}</p>` : nothing}
-        ${this.verificationRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.verificationRGBW)}</div>` : nothing}
+      <div class="xml-files">
+        <div class="table-section">
+          <h2 class="title">
+            Reference File (.bpd)
+            <sl-button size="small" @click="${this.openReferenceBpdFile}">Load</sl-button>
+          </h2>
+          ${this.referenceBpd ? html`<p class="file">${this.referenceBpd.name}</p>` : nothing}
+          ${this.referenceRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.referenceRGBW)}</div>` : nothing}
+        </div>
+        <div class="table-section">
+          <h2 class="title">
+            Verification File (.bcs)
+            <sl-button size="small" @click="${this.openVerificationBcsFile}">Load</sl-button>
+          </h2>
+          ${this.verificationBcs ? html`<p class="file">${this.verificationBcs.name}</p>` : nothing}
+          ${this.verificationRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.verificationRGBW)}</div>` : nothing}
+        </div>
       </div>
 
       ${this.referenceRGBW && this.verificationRGBW && this.xyYErrors

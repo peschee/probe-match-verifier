@@ -12,6 +12,10 @@ p {
   margin: 0 0 var(--sl-spacing-small);
 }
 
+a {
+  color: var(--sl-color-primary-800);
+}
+
 h1 {
   font-size: var(--sl-font-size-x-large);
   font-weight: var(--sl-font-weight-bold);
@@ -174,4 +178,15 @@ tr.white td.clear {
 
 .table-section > .file {
   margin-bottom: var(--sl-spacing-small);
+}
+
+/*.xml-files {*/
+/*  display: grid;*/
+/*  grid-template-columns: 1fr 1fr;*/
+/*}*/
+
+@media print {
+  .about-trigger {
+    display: none;
+  }
 }
