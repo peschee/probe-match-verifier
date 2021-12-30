@@ -1,0 +1,64 @@
+@import '@shoelace-style/shoelace/dist/themes/light.css';
+
+:host {
+  font-family: var(--sl-font-sans);
+
+  --app-color-bg-r: var(--sl-color-red-50);
+  --app-color-bg-g: var(--sl-color-green-50);
+  --app-color-bg-b: var(--sl-color-blue-50);
+  --app-color-bg-w: var(--sl-color-gray-50);
+}
+
+h1 {
+  font-size: var(--sl-font-size-x-large);
+}
+
+.success {
+  color: var(--sl-color-success-600);
+}
+
+.error {
+  color: var(--sl-color-danger-600);
+}
+
+table {
+  font-family: var(--sl-font-mono);
+  font-size: var(--sl-font-size-small);
+}
+
+td {
+  padding: 0.25rem;
+  text-align: right;
+}
+
+td.r {
+  background: var(--app-color-bg-r);
+}
+
+td.g {
+  background: var(--app-color-bg-g);
+}
+
+td.b {
+  background: var(--app-color-bg-b);
+}
+
+td.w {
+  background: var(--app-color-bg-w);
+}
+
+tr.r td {
+  background: var(--app-color-bg-r);
+}
+
+tr.g td {
+  background: var(--app-color-bg-g);
+}
+
+tr.b td {
+  background: var(--app-color-bg-b);
+}
+
+tr.w td {
+  background: var(--app-color-bg-w);
+}

@@ -6,7 +6,7 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
 import shoelaceStyles from '@shoelace-style/shoelace/dist/themes/light.styles.js';
 
-import styles from './app-shell.scss?inline';
+import styles from './app-shell.css?inline';
 import { formatNumber, relativeDifference } from './util/functions';
 import { ColourSpaceXML, RGBW, xyY } from './util/ColourSpaceXML';
 
@@ -55,7 +55,7 @@ export class AppShell extends LitElement {
     return html`
       <sl-button>Yay!</sl-button>
       <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-      <h1>Probe Match Verification</h1>
+      <h1>ColourSpace Probe Match Verification</h1>
       <p>Reference BPD File: <a href="#" @click="${this.openReferenceBpdFile}">Open BPD</a> ${this.referenceBpd?.name}</p>
       ${this.referenceRGBW ? this.renderRGBW(this.referenceRGBW) : nothing}
       <p>Verification BCS File: <a href="#" @click="${this.openVerificationBcsFile}">Open BCS</a> ${this.verificationBcs?.name}</p>
@@ -427,9 +427,9 @@ export class AppShell extends LitElement {
   }
 
   private static renderError(value: number) {
-    if (value < 0) {
-      return html`<span class="error">${formatNumber(value)}</span>`;
-    }
+    // if (value < 0) {
+    //   return html`<span class="error">${formatNumber(value)}</span>`;
+    // }
 
     return formatNumber(value);
   }
