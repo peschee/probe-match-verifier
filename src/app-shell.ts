@@ -72,42 +72,47 @@ export class AppShell extends LitElement {
 
   render() {
     return html`
-      <h1 class="app-title">
-        <img src="${logoUrl}" alt="" class="logo" />
-        <span class="text">${pkg.description}</span>
-      </h1>
-      <div class="xml-files">
+      <header class="app-header">
+        <h1 class="title app-title">
+          <img src="${logoUrl}" alt="" class="logo" />
+          <span class="text">${pkg.description}</span>
+        </h1>
+        <sl-icon-button name="info-circle" label="About" @click="${() => this.aboutDialog?.show()}" class="info about-trigger"></sl-icon-button>
+      </header>
+
+      <main class="app-content">
         <div class="table-section">
           <h2 class="title">
             Reference File (.bpd)
-            <sl-button size="small" @click="${this.openReferenceBpdFile}">Load</sl-button>
+            <sl-button size="small" @click="${this.openReferenceBpdFile}"><sl-icon name="file-earmark-text"></sl-icon> Load</sl-button>
           </h2>
           ${this.referenceBpd ? html`<p class="file">${this.referenceBpd.name}</p>` : nothing}
           ${this.referenceRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.referenceRGBW)}</div>` : nothing}
         </div>
         <div class="table-section">
           <h2 class="title">
-            Verification File (.bcs)
-            <sl-button size="small" @click="${this.openVerificationBcsFile}">Load</sl-button>
+            Verification File (.bcs) file-earmark-text
+            <sl-button size="small" @click="${this.openVerificationBcsFile}"><sl-icon name="file-earmark-text"></sl-icon> Load</sl-button>
           </h2>
           ${this.verificationBcs ? html`<p class="file">${this.verificationBcs.name}</p>` : nothing}
           ${this.verificationRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.verificationRGBW)}</div>` : nothing}
         </div>
-      </div>
 
-      ${this.referenceRGBW && this.verificationRGBW && this.xyYErrors
-        ? html` <div class="table-section">
-            <h2 class="title">Profiled Meter Comparison</h2>
-            <div class="table-responsive">${this.renderComparisonTable(this.referenceRGBW, this.verificationRGBW, this.xyYErrors)}</div>
-          </div>`
-        : nothing}
+        ${this.referenceRGBW && this.verificationRGBW && this.xyYErrors
+          ? html` <div class="table-section">
+              <h2 class="title">Profiled Meter Comparison</h2>
+              <div class="table-responsive">${this.renderComparisonTable(this.referenceRGBW, this.verificationRGBW, this.xyYErrors)}</div>
+            </div>`
+          : nothing}
+      </main>
 
-      <sl-dialog label="About" data-dialog-about class="about-dialog">
-        <!--        <img src="${logoUrl}" alt="" class="logo" />-->
-        ${unsafeHTML(readmeHtml)}
-        <sl-button slot="footer" variant="primary" @click="${() => this.aboutDialog?.hide()}">Close</sl-button>
-      </sl-dialog>
-      <sl-icon-button name="info-circle" label="About" @click="${() => this.aboutDialog?.show()}" class="about-trigger"></sl-icon-button>
+      <footer>
+        <sl-dialog label="About" data-dialog-about class="about-dialog">
+          <!--        <img src="${logoUrl}" alt="" class="logo" />-->
+          ${unsafeHTML(readmeHtml)}
+          <sl-button slot="footer" variant="primary" @click="${() => this.aboutDialog?.hide()}">Close</sl-button>
+        </sl-dialog>
+      </footer>
     `;
   }
 

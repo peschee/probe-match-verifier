@@ -1,4 +1,6 @@
 :host {
+  --app-spacing-header: var(--sl-spacing-medium);
+
   font-family: var(--sl-font-sans);
   line-height: var(--sl-line-height-dense);
   padding: var(--sl-spacing-small);
@@ -145,12 +147,12 @@ tr.white td.clear {
   overflow-x: auto;
 }
 
-.about-trigger {
-  position: fixed;
-  top: var(--sl-spacing-medium);
-  right: var(--sl-spacing-medium);
-  z-index: 2;
-}
+/*.about-trigger {*/
+/*  position: fixed;*/
+/*  top: var(--sl-spacing-medium);*/
+/*  right: var(--sl-spacing-medium);*/
+/*  z-index: 2;*/
+/*}*/
 
 .about-dialog {
   --width: 70ch;
@@ -172,6 +174,31 @@ tr.white td.clear {
   margin-right: var(--sl-spacing-small);
 }
 
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 1;
+  border-bottom: 1px solid var(--sl-input-border-color);
+}
+
+.app-header > .title {
+  margin: var(--app-spacing-header) 0 var(--app-spacing-header) var(--app-spacing-header);
+}
+
+.app-header > .info {
+  margin: var(--app-spacing-header) var(--app-spacing-header) var(--app-spacing-header) 0;
+}
+
+.app-content {
+  padding-top: 80px;
+}
+
 .table-section {
   margin-bottom: var(--sl-spacing-x-large);
 }
@@ -183,11 +210,6 @@ tr.white td.clear {
 .table-section > .file {
   margin-bottom: var(--sl-spacing-small);
 }
-
-/*.xml-files {*/
-/*  display: grid;*/
-/*  grid-template-columns: 1fr 1fr;*/
-/*}*/
 
 @media print {
   .about-trigger {

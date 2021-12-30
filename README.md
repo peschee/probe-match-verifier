@@ -15,6 +15,6 @@ This is probe match verification tool for [ColourSpace].
 3. Save this profile
 4. Locate the reference meter profile (`.bpd`) as well as the profile saved from the manual measurements (`.bcs`). The `.bcs` files are usually found in `C:\Users\USERNAME\AppData\Roaming\ColourSpace\ColourSpaces`, the `.bpd` files should be in `C:\Users\USERNAME\AppData\Roaming\ColourSpace\MCGD`.
 5. Copy these files somewhere outside of Windows system folders (e.g. `Desktop`), otherwise you won't be able to select them in the web application.
-6. Load both files in the UI. The probe match verifier will compute whether the measurements are within NIST tolerance levels (`+/- 0.001` for `x,y` as well as `+/- 1.5%` for `Y`).
+6. Load both files in the UI. The probe match verifier will compute whether the measurements are within Maximum Accepted Tolerance Levels (`+/- 0.001` for `x,y` as well as `+/- 1.5%` for `Y`).
 
 [colourspace]: https://www.lightillusion.com/colourspace.html
