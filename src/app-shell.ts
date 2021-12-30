@@ -286,22 +286,22 @@ export class AppShell extends LitElement {
       </tr>
       <tr class="${color}">
         <th>x</th>
-        <td>${formatNumber(xyYReference.x)}</td>
-        <td>${formatNumber(xyYVerification.x)}</td>
+        <td>${formatNumber(xyYReference.x, 7)}</td>
+        <td>${formatNumber(xyYVerification.x, 7)}</td>
         <td class="align-percent">${AppShell.renderError(errors[color].x)}</td>
         <td class="clear">${AppShell.renderNistPassFail(AppShell.passesNistxy(errors[color].x))}</td>
       </tr>
       <tr class="${color}">
         <th>y</th>
-        <td>${formatNumber(xyYReference.y)}</td>
-        <td>${formatNumber(xyYVerification.y)}</td>
+        <td>${formatNumber(xyYReference.y, 7)}</td>
+        <td>${formatNumber(xyYVerification.y, 7)}</td>
         <td class="align-percent">${AppShell.renderError(errors[color].y)}</td>
         <td class="clear">${AppShell.renderNistPassFail(AppShell.passesNistxy(errors[color].y))}</td>
       </tr>
       <tr class="${color}">
         <th>Y</th>
-        <td>${formatNumber(xyYReference.Y)}</td>
-        <td>${formatNumber(xyYVerification.Y)}</td>
+        <td>${formatNumber(xyYReference.Y, 7)}</td>
+        <td>${formatNumber(xyYVerification.Y, 7)}</td>
         <td class="number-percent">${AppShell.renderError(errors[color].Y)}</td>
         <td class="clear">${AppShell.renderNistPassFail(AppShell.passesNistY(errors[color].Y))}</td>
       </tr>
@@ -395,7 +395,7 @@ export class AppShell extends LitElement {
   }
 
   private static renderError(value: number) {
-    return formatNumber(value);
+    return formatNumber(value, 7);
   }
 
   private updateHeaderSize() {

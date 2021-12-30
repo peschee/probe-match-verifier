@@ -211,7 +211,7 @@ tr.white td.clear {
   margin-left: var(--sl-spacing-x-small);
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1024px) {
   .app-content {
     grid-template-columns: fit-content(20%) auto;
   }
