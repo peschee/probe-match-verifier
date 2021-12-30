@@ -2,6 +2,7 @@
 
 :host {
   font-family: var(--sl-font-sans);
+  line-height: var(--sl-line-height-dense);
 
   --app-color-bg-r: var(--sl-color-red-50);
   --app-color-bg-g: var(--sl-color-green-50);
@@ -9,8 +10,22 @@
   --app-color-bg-w: var(--sl-color-gray-50);
 }
 
+h1,
+h2,
+h3 {
+  margin: 0 0 1rem;
+}
+
 h1 {
   font-size: var(--sl-font-size-x-large);
+}
+
+h2 {
+  font-size: var(--sl-font-size-large);
+}
+
+h3 {
+  font-size: var(--sl-font-size-medium);
 }
 
 .success {
@@ -61,4 +76,20 @@ tr.b td {
 
 tr.w td {
   background: var(--app-color-bg-w);
+}
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.about-trigger {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.about-dialog {
+  --width: 70ch;
 }

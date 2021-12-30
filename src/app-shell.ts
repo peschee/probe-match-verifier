@@ -1,15 +1,20 @@
 import { html, LitElement, nothing, PropertyValues, unsafeCSS } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
+import { customElement, query, state } from 'lit/decorators.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { fileOpen, supported } from 'browser-fs-access';
+import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
+import { SlDialog } from '@shoelace-style/shoelace';
+import readmeHtml from './../README.md';
+
 import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/dialog/dialog.js';
 import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
 
 import styles from './app-shell.css?inline';
 import { formatNumber, relativeDifference } from './util/functions';
 import { ColourSpaceXML, RGBW, xyY } from './util/ColourSpaceXML';
 
-import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
 setBasePath('/shoelace');
 
 const DEBUG = import.meta.env.DEV;
@@ -38,6 +43,9 @@ export class AppShell extends LitElement {
   @state()
   xyYErrors?: xyYErrors;
 
+  @query('[data-dialog-about]')
+  aboutDialog?: SlDialog;
+
   static styles = unsafeCSS(styles);
 
   private csXML = new ColourSpaceXML();
@@ -60,6 +68,11 @@ export class AppShell extends LitElement {
       ${this.referenceRGBW && this.verificationRGBW && this.xyYErrors
         ? AppShell.renderComparison(this.referenceRGBW, this.verificationRGBW, this.xyYErrors)
         : nothing}
+      <sl-dialog label="About" data-dialog-about class="about-dialog">
+        ${unsafeHTML(readmeHtml)}
+        <sl-button slot="footer" variant="primary" @click="${() => this.aboutDialog?.hide()}">Close</sl-button>
+      </sl-dialog>
+      <sl-icon-button name="info-circle" label="About" @click="${() => this.aboutDialog?.show()}" class="about-trigger"></sl-icon-button>
     `;
   }
 

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "esnext",
     "lib": ["es2017", "dom", "dom.iterable"],
-    "types": ["vite/client", "vitest"],
+    "types": ["vite/client", "vitest", "vite-remark-html/client"],
     "noEmit": true,
     "rootDir": "./src",
     "strict": true,

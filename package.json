@@ -26,6 +26,7 @@
     "ts-lit-plugin": "^1.2.1",
     "typescript": "^4.5.4",
     "vite": "^2.7.9",
+    "vite-remark-html": "^1.1.1",
     "vitest": "^0.0.122"
   },
   "dependencies": {
