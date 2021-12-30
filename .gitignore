@@ -3,3 +3,4 @@
 /dist
 /coverage
 /public/shoelace
+/package-lock.json

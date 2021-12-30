@@ -5,9 +5,9 @@
   "scripts": {
     "start": "vite",
     "clean": "rimraf dist coverage",
-    "build": "npm run clean && tsc && vite build",
-    "build:subfolder": "npm run build -- --base=/probe-match/",
-    "preview": "npm run build && vite preview",
+    "build": "pnpm runclean && tsc && vite build",
+    "build:subfolder": "pnpm runbuild -- --base=/probe-match/",
+    "preview": "pnpm runbuild && vite preview",
     "lint": "run-p lint:*",
     "lint:types": "tsc --noEmit",
     "test": "vitest",
