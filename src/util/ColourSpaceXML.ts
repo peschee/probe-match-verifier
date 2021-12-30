@@ -3,6 +3,8 @@ import { ColorConverter } from 'cie-colorconverter';
 
 export type RGBW = Array<Array<number>>;
 
+export type ColorName = 'red' | 'green' | 'blue' | 'white';
+
 export type XYZ = {
   X: number;
   Y: number;
@@ -119,5 +121,16 @@ export class ColourSpaceXML {
       [redxyY[1], greenxyY[1], bluexyY[1], whitexyY[1]],
       [redxyY[2], greenxyY[2], bluexyY[2], whitexyY[2]],
     ];
+  }
+
+  getRGBWIndexForColor(color: ColorName): number {
+    const indexMap: Record<ColorName, number> = {
+      red: 0,
+      green: 1,
+      blue: 2,
+      white: 3,
+    };
+
+    return indexMap[color];
   }
 }

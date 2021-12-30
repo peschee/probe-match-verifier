@@ -9,7 +9,7 @@ h1,
 h2,
 h3,
 p {
-  margin: 0 0 1rem;
+  margin: 0 0 var(--sl-spacing-small);
 }
 
 h1 {
@@ -35,14 +35,38 @@ h3 {
   color: var(--sl-color-danger-600);
 }
 
+.text-red {
+  color: var(--sl-color-red-600);
+}
+
+.text-green {
+  color: var(--sl-color-green-600);
+}
+
+.text-blue {
+  color: var(--sl-color-blue-600);
+}
+
+.text-white {
+  color: var(--sl-color-gray-600);
+}
+
 table {
   font-family: var(--sl-font-mono);
   font-size: var(--sl-font-size-small);
+  /*border-collapse: collapse;*/
 }
 
-th,
 td {
+  padding: var(--sl-spacing-x-small) var(--sl-spacing-x-small);
+}
+
+th {
   padding: var(--sl-spacing-2x-small) var(--sl-spacing-x-small);
+}
+
+tr.separator th {
+  padding-top: var(--sl-spacing-large);
 }
 
 .profile-comparison th {
@@ -50,7 +74,6 @@ td {
 }
 
 td {
-  padding: 0.25rem;
   text-align: right;
   font-weight: 600;
 }
@@ -60,36 +83,43 @@ th {
   font-family: var(--sl-font-sans);
 }
 
-td.r {
+td.red {
   background: var(--app-color-bg-r);
 }
 
-td.g {
+td.green {
   background: var(--app-color-bg-g);
 }
 
-td.b {
+td.blue {
   background: var(--app-color-bg-b);
 }
 
-td.w {
+td.white {
   background: var(--app-color-bg-w);
 }
 
-tr.r td {
+tr.red td {
   background: var(--app-color-bg-r);
 }
 
-tr.g td {
+tr.green td {
   background: var(--app-color-bg-g);
 }
 
-tr.b td {
+tr.blue td {
   background: var(--app-color-bg-b);
 }
 
-tr.w td {
+tr.white td {
   background: var(--app-color-bg-w);
+}
+
+tr.red td.clear,
+tr.green td.clear,
+tr.blue td.clear,
+tr.white td.clear {
+  background: transparent;
 }
 
 .number-percent::after {
@@ -108,9 +138,10 @@ tr.w td {
 }
 
 .about-trigger {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  position: fixed;
+  top: var(--sl-spacing-medium);
+  right: var(--sl-spacing-medium);
+  z-index: 2;
 }
 
 .about-dialog {
@@ -134,7 +165,7 @@ tr.w td {
 }
 
 .table-section {
-  margin-bottom: 1rem;
+  margin-bottom: var(--sl-spacing-x-large);
 }
 
 .table-section > .title {
@@ -142,5 +173,5 @@ tr.w td {
 }
 
 .table-section > .file {
-  margin-bottom: 1rem;
+  margin-bottom: var(--sl-spacing-small);
 }
