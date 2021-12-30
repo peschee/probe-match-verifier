@@ -7,6 +7,7 @@ import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.j
 import { SlDialog } from '@shoelace-style/shoelace';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/badge/badge.js';
 import '@shoelace-style/shoelace/dist/components/dialog/dialog.js';
 import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
 
@@ -45,6 +46,12 @@ export class AppShell extends LitElement {
   @query('[data-dialog-about]')
   aboutDialog?: SlDialog;
 
+  @query('[data-app-header]')
+  appHeader?: HTMLDivElement;
+
+  @query('[data-app-content]')
+  appContent?: HTMLDivElement;
+
   static styles = unsafeCSS(styles);
 
   private csXML = new ColourSpaceXML({
@@ -57,6 +64,8 @@ export class AppShell extends LitElement {
     if (DEBUG) {
       console.log(supported ? 'Using the File System Access API.' : 'Using the fallback implementation.');
     }
+
+    this.updateHeaderSize = this.updateHeaderSize.bind(this);
   }
 
   async connectedCallback() {
@@ -68,11 +77,19 @@ export class AppShell extends LitElement {
       this.referenceBpd = new File([new Blob([referenceBpd])], 'i1pro2.bpd');
       this.verificationBcs = new File([new Blob([verificationBcs])], 'verification.bcs');
     }
+
+    window.addEventListener('resize', this.updateHeaderSize);
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener('resize', this.updateHeaderSize);
+
+    super.disconnectedCallback();
   }
 
   render() {
     return html`
-      <header class="app-header">
+      <header class="app-header" data-app-header>
         <h1 class="title app-title">
           <img src="${logoUrl}" alt="" class="logo" />
           <span class="text app-name">
@@ -83,23 +100,30 @@ export class AppShell extends LitElement {
         <sl-icon-button name="info-circle" label="About" @click="${() => this.aboutDialog?.show()}" class="info about-trigger"></sl-icon-button>
       </header>
 
-      <main class="app-content">
+      <main class="app-content" data-app-content>
+        <!-- for the css grid to work… -->
         <div>
           <div class="table-section">
-            <h2 class="title">
-              Reference File (.bpd)
-              <sl-button size="small" @click="${this.openReferenceBpdFile}" class="load-file-button"
-                ><sl-icon name="file-earmark-text"></sl-icon> Load</sl-button
+            <h2 class="title section-title">
+              <span class="text badge-text">
+                <span class="text">Reference File (.bpd)</span>
+                <sl-badge class="badge">Spectro</sl-badge>
+              </span>
+              <sl-button size="small" @click="${this.openReferenceBpdFile}" class="button load-file-button icon-button"
+                ><sl-icon name="file-earmark-text" class="icon"></sl-icon> Load</sl-button
               >
             </h2>
             ${this.referenceBpd ? html`<p class="file">${this.referenceBpd.name}</p>` : nothing}
             ${this.referenceRGBW ? html`<div class="table-responsive">${this.renderRGBW(this.referenceRGBW)}</div>` : nothing}
           </div>
           <div class="table-section">
-            <h2 class="title">
-              Verification File (.bcs)
-              <sl-button size="small" @click="${this.openVerificationBcsFile}" class="load-file-button"
-                ><sl-icon name="file-earmark-text"></sl-icon> Load</sl-button
+            <h2 class="title section-title">
+              <span class="text badge-text">
+                <span class="text">Verification File (.bcs)</span>
+                <sl-badge variant="neutral" class="badge">Meter</sl-badge>
+              </span>
+              <sl-button size="small" @click="${this.openVerificationBcsFile}" class="button load-file-button icon-button"
+                ><sl-icon name="file-earmark-text" class="icon"></sl-icon> Load</sl-button
               >
             </h2>
             ${this.verificationBcs ? html`<p class="file">${this.verificationBcs.name}</p>` : nothing}
@@ -116,7 +140,6 @@ export class AppShell extends LitElement {
 
       <footer>
         <sl-dialog label="About" data-dialog-about class="about-dialog">
-          <!--        <img src="${logoUrl}" alt="" class="logo" />-->
           ${unsafeHTML(readmeHtml)}
           <sl-button slot="footer" variant="primary" @click="${() => this.aboutDialog?.hide()}">Close</sl-button>
         </sl-dialog>
@@ -126,6 +149,8 @@ export class AppShell extends LitElement {
 
   protected async updated(changedProperties: PropertyValues) {
     super.updated(changedProperties);
+
+    this.updateHeaderSize();
 
     if (changedProperties.has('referenceBpd') && this.referenceBpd) {
       this.referenceRGBW = this.csXML.getRGBWFromBpd(await this.referenceBpd.text());
@@ -370,10 +395,14 @@ export class AppShell extends LitElement {
   }
 
   private static renderError(value: number) {
-    // if (value < 0) {
-    //   return html`<span class="error">${formatNumber(value)}</span>`;
-    // }
-
     return formatNumber(value);
+  }
+
+  private updateHeaderSize() {
+    if (!this.appHeader || !this.appContent) {
+      return;
+    }
+
+    this.appContent.style.setProperty('--app-header-size', `${this.appHeader.offsetHeight}px`);
   }
 }
