@@ -84,22 +84,12 @@ export class ColourSpaceXML {
       .filter((p) => !(p.stimuli.red === 1 && p.stimuli.green === 1 && p.stimuli.blue === 1));
 
     // Get XYZ for each color
-    const {
-      results: { XYZ: redXYZ },
-    } = colorPatches.filter((p) => p.stimuli.green === 0 && p.stimuli.blue === 0).shift()!;
-    const {
-      results: { XYZ: greenXYZ },
-    } = colorPatches.filter((p) => p.stimuli.red === 0 && p.stimuli.blue === 0).shift()!;
-    const {
-      results: { XYZ: blueXYZ },
-    } = colorPatches.filter((p) => p.stimuli.red === 0 && p.stimuli.green === 0).shift()!;
+    const { results: { XYZ: redXYZ = undefined } = {} } = colorPatches.filter((p) => p.stimuli.green === 0 && p.stimuli.blue === 0).shift() || {};
+    const { results: { XYZ: greenXYZ = undefined } = {} } = colorPatches.filter((p) => p.stimuli.red === 0 && p.stimuli.blue === 0).shift() || {};
+    const { results: { XYZ: blueXYZ = undefined } = {} } = colorPatches.filter((p) => p.stimuli.red === 0 && p.stimuli.green === 0).shift() || {};
 
     // Get XYZ for white
-    const [
-      {
-        results: { XYZ: whiteXYZ },
-      },
-    ] = patches.filter(
+    const [{ results: { XYZ: whiteXYZ = undefined } = {} }] = patches.filter(
       (p) => p.stimuli.red !== 0 && p.stimuli.red !== 1 && p.stimuli.green !== 0 && p.stimuli.green !== 1 && p.stimuli.blue !== 0 && p.stimuli.blue !== 1
     );
 
@@ -108,6 +98,10 @@ export class ColourSpaceXML {
       console.log('greenXYZ', greenXYZ);
       console.log('blueXYZ', blueXYZ);
       console.log('whiteXYZ', whiteXYZ);
+    }
+
+    if (!redXYZ || !greenXYZ || !blueXYZ || !whiteXYZ) {
+      return;
     }
 
     // Convert to XYZ --> xyY
