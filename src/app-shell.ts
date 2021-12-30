@@ -59,6 +59,17 @@ export class AppShell extends LitElement {
     }
   }
 
+  async connectedCallback() {
+    super.connectedCallback();
+
+    if (DEBUG) {
+      const { default: referenceBpd } = await import('../test/fixtures/i1pro2.bpd?raw');
+      const { default: verificationBcs } = await import('../test/fixtures/verification.bcs?raw');
+      this.referenceBpd = new File([new Blob([referenceBpd])], 'i1pro2.bpd');
+      this.verificationBcs = new File([new Blob([verificationBcs])], 'verification.bcs');
+    }
+  }
+
   render() {
     return html`
       <h1 class="app-title">
