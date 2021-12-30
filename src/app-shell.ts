@@ -91,7 +91,7 @@ export class AppShell extends LitElement {
         </div>
         <div class="table-section">
           <h2 class="title">
-            Verification File (.bcs) file-earmark-text
+            Verification File (.bcs)
             <sl-button size="small" @click="${this.openVerificationBcsFile}"><sl-icon name="file-earmark-text"></sl-icon> Load</sl-button>
           </h2>
           ${this.verificationBcs ? html`<p class="file">${this.verificationBcs.name}</p>` : nothing}
