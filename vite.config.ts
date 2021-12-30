@@ -6,6 +6,7 @@ import remarkHtml from 'vite-remark-html';
 export default defineConfig({
   plugins: [
     remarkHtml({
+      allowDangerousHtml: true,
       include: ['src/**/*.md', 'README.md'],
     }),
   ],

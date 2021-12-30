@@ -5,8 +5,9 @@
   "scripts": {
     "start": "vite",
     "clean": "rimraf dist coverage",
-    "build": "npm run clean && tsc && vite build --base=/probe-match/",
-    "preview": "vite preview",
+    "build": "npm run clean && tsc && vite build",
+    "build:subfolder": "npm run build -- --base=/probe-match/",
+    "preview": "npm run build && vite preview",
     "lint": "run-p lint:*",
     "lint:types": "tsc --noEmit",
     "test": "vitest",
@@ -34,6 +35,7 @@
     "browser-fs-access": "^0.23.0",
     "cie-colorconverter": "^2.0.1",
     "fast-xml-parser": "^4.0.0-beta.8",
-    "lit": "^2.0.2"
+    "lit": "^2.0.2",
+    "normalize.css": "^8.0.1"
   }
 }

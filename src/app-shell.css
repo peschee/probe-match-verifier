@@ -3,6 +3,8 @@
 :host {
   font-family: var(--sl-font-sans);
   line-height: var(--sl-line-height-dense);
+  padding: var(--sl-spacing-small);
+  display: block;
 
   --app-color-bg-r: var(--sl-color-red-50);
   --app-color-bg-g: var(--sl-color-green-50);
@@ -12,20 +14,24 @@
 
 h1,
 h2,
-h3 {
+h3,
+p {
   margin: 0 0 1rem;
 }
 
 h1 {
   font-size: var(--sl-font-size-x-large);
+  font-weight: var(--sl-font-weight-bold);
 }
 
 h2 {
   font-size: var(--sl-font-size-large);
+  font-weight: var(--sl-font-weight-semibold);
 }
 
 h3 {
   font-size: var(--sl-font-size-medium);
+  font-weight: var(--sl-font-weight-semibold);
 }
 
 .success {
@@ -92,4 +98,32 @@ tr.w td {
 
 .about-dialog {
   --width: 70ch;
+}
+
+.about-dialog > .logo {
+  max-width: 32px;
+  height: auto;
+}
+
+.app-title {
+  display: flex;
+  align-items: center;
+}
+
+.app-title > .logo {
+  max-width: 32px;
+  height: auto;
+  margin-right: var(--sl-spacing-small);
+}
+
+.table-section {
+  margin-bottom: 1rem;
+}
+
+.table-section > .title {
+  margin-bottom: 0;
+}
+
+.table-section > .file {
+  margin-bottom: 1rem;
 }

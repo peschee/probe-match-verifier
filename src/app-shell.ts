@@ -5,15 +5,16 @@ import { classMap } from 'lit/directives/class-map.js';
 import { fileOpen, supported } from 'browser-fs-access';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
 import { SlDialog } from '@shoelace-style/shoelace';
-import readmeHtml from './../README.md';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/dialog/dialog.js';
 import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
 
-import styles from './app-shell.css?inline';
 import { formatNumber, relativeDifference } from './util/functions';
 import { ColourSpaceXML, RGBW, xyY } from './util/ColourSpaceXML';
+import styles from './app-shell.css?inline';
+import logoUrl from '../color-spectrum.png';
+import readmeHtml from './../README.md';
 
 setBasePath('/shoelace');
 
@@ -60,15 +61,36 @@ export class AppShell extends LitElement {
 
   render() {
     return html`
-      <h1>ColourSpace Probe Match Verification</h1>
-      <p>Reference BPD File: <a href="#" @click="${this.openReferenceBpdFile}">Open BPD</a> ${this.referenceBpd?.name}</p>
-      ${this.referenceRGBW ? this.renderRGBW(this.referenceRGBW) : nothing}
-      <p>Verification BCS File: <a href="#" @click="${this.openVerificationBcsFile}">Open BCS</a> ${this.verificationBcs?.name}</p>
-      ${this.verificationRGBW ? this.renderRGBW(this.verificationRGBW) : nothing}
+      <h1 class="app-title">
+        <img src="${logoUrl}" alt="" class="logo" />
+        <span class="text">ColourSpace Probe Match Verification</span>
+      </h1>
+      <div class="table-section">
+        <h2 class="title">
+          Reference File (.bpd)
+          <sl-button size="small" @click="${this.openReferenceBpdFile}">Load</sl-button>
+        </h2>
+        ${this.referenceBpd ? html`<p class="file">${this.referenceBpd.name}</p>` : nothing}
+        ${this.referenceRGBW ? this.renderRGBW(this.referenceRGBW) : nothing}
+      </div>
+      <div class="table-section">
+        <h2 class="title">
+          Verification File (.bcs)
+          <sl-button size="small" @click="${this.openVerificationBcsFile}">Load</sl-button>
+        </h2>
+        ${this.verificationBcs ? html`<p class="file">${this.verificationBcs.name}</p>` : nothing}
+        ${this.verificationRGBW ? this.renderRGBW(this.verificationRGBW) : nothing}
+      </div>
+
       ${this.referenceRGBW && this.verificationRGBW && this.xyYErrors
-        ? AppShell.renderComparison(this.referenceRGBW, this.verificationRGBW, this.xyYErrors)
+        ? html` <div class="table-section">
+            <h2 class="title">Profiled Meter Comparison</h2>
+            ${AppShell.renderComparisonTable(this.referenceRGBW, this.verificationRGBW, this.xyYErrors)}
+          </div>`
         : nothing}
+
       <sl-dialog label="About" data-dialog-about class="about-dialog">
+        <!--        <img src="${logoUrl}" alt="" class="logo" />-->
         ${unsafeHTML(readmeHtml)}
         <sl-button slot="footer" variant="primary" @click="${() => this.aboutDialog?.hide()}">Close</sl-button>
       </sl-dialog>
@@ -125,16 +147,20 @@ export class AppShell extends LitElement {
   }
 
   private async openReferenceBpdFile() {
-    const blob = await fileOpen({
-      description: 'BPD files',
-      extensions: ['.bpd'],
-    });
+    try {
+      const blob = await fileOpen({
+        description: 'BPD files',
+        extensions: ['.bpd'],
+      });
 
-    this.referenceBpd = blob;
-    this.requestUpdate('referenceBpd');
+      this.referenceBpd = blob;
+      this.requestUpdate('referenceBpd');
 
-    if (DEBUG) {
-      console.log('openReferenceBpdFile', blob);
+      if (DEBUG) {
+        console.log('openReferenceBpdFile', blob);
+      }
+    } catch (e) {
+      console.error(e);
     }
   }
 
@@ -175,7 +201,7 @@ export class AppShell extends LitElement {
     `;
   }
 
-  private static renderComparison(reference: RGBW, verification: RGBW, errors: xyYErrors) {
+  private static renderComparisonTable(reference: RGBW, verification: RGBW, errors: xyYErrors) {
     const redxyYReference = {
       x: reference[0][0],
       y: reference[1][0],
@@ -225,7 +251,6 @@ export class AppShell extends LitElement {
     };
 
     return html`
-      <p>Profiled Meter Comparison</p>
       <table>
         <tr class="r">
           <th>Red</th>
