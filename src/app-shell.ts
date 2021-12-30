@@ -16,7 +16,7 @@ import styles from './app-shell.css?inline';
 import logoUrl from '../color-spectrum.png';
 import readmeHtml from './../README.md';
 
-setBasePath('/shoelace');
+setBasePath(`${import.meta.env.BASE_URL}shoelace`);
 
 const DEBUG = import.meta.env.DEV;
 
