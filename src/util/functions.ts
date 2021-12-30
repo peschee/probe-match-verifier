@@ -1,7 +1,12 @@
 export const DEFAULT_PRECISION = 5;
 
 export const relativeDifference = (a: number, b: number) => {
-  return ((b - a) / b) * 100;
+  const difference = Math.abs(((a - b) / a) * 100);
+  if (a > b) {
+    return -difference;
+  }
+
+  return difference;
 };
 
 export const formatNumber = (a: number | string, precision = DEFAULT_PRECISION) => {
