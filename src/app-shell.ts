@@ -347,26 +347,26 @@ export class AppShell extends LitElement {
     }
 
     const redxyY: xyY = {
-      x: reference[0][redIndex] - verification[0][redIndex],
-      y: reference[1][redIndex] - verification[1][redIndex],
+      x: verification[0][redIndex] - reference[0][redIndex],
+      y: verification[1][redIndex] - reference[1][redIndex],
       Y: relativeDifference(reference[2][redIndex], verification[2][redIndex]),
     };
 
     const greenxyY: xyY = {
-      x: reference[0][greenIndex] - verification[0][greenIndex],
-      y: reference[1][greenIndex] - verification[1][greenIndex],
+      x: verification[0][greenIndex] - reference[0][greenIndex],
+      y: verification[1][greenIndex] - reference[1][greenIndex],
       Y: relativeDifference(reference[2][greenIndex], verification[2][greenIndex]),
     };
 
     const bluexyY: xyY = {
-      x: reference[0][blueIndex] - verification[0][blueIndex],
-      y: reference[1][blueIndex] - verification[1][blueIndex],
+      x: verification[0][blueIndex] - reference[0][blueIndex],
+      y: verification[1][blueIndex] - reference[1][blueIndex],
       Y: relativeDifference(reference[2][blueIndex], verification[2][blueIndex]),
     };
 
     const whitexyY: xyY = {
-      x: reference[0][whiteIndex] - verification[0][whiteIndex],
-      y: reference[1][whiteIndex] - verification[1][whiteIndex],
+      x: verification[0][whiteIndex] - reference[0][whiteIndex],
+      y: verification[1][whiteIndex] - reference[1][whiteIndex],
       Y: relativeDifference(reference[2][whiteIndex], verification[2][whiteIndex]),
     };
 
