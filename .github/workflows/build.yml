@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: Lint & Test
+    name: Lint & Test & Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -30,3 +30,6 @@ jobs:
 
       - name: Test
         run: pnpm run test
+
+      - name: Test
+        run: pnpm run build
