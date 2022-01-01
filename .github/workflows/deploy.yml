@@ -25,6 +25,9 @@ jobs:
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
 
+      - run: |
+          echo 'INJECT_ANALYTICS=1' >> .env
+
       - name: Build
         run: pnpm run build:gh-pages
 
