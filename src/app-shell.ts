@@ -16,7 +16,7 @@ import { ColorName, ColourSpaceXML, RGBW, xyY } from './util/ColourSpaceXML';
 import styles from './app-shell.css?inline';
 import logoUrl from '../color-spectrum.png';
 import pkg from '../package.json';
-import readmeHtml from './../README.md';
+import howtoHtml from './../HOWTO.md';
 
 setBasePath(`${import.meta.env.BASE_URL}shoelace`);
 
@@ -93,8 +93,8 @@ export class AppShell extends LitElement {
         <h1 class="title app-title">
           <img src="${logoUrl}" alt="" class="logo" />
           <span class="text app-name">
-            <span class="full">${pkg.description}</span>
-            <span class="short">${pkg.description.replace('ColourSpace', 'CS')}</span>
+            <span class="title">${pkg.title}</span>
+            <span class="desc">${pkg.description}</span>
           </span>
         </h1>
         <sl-icon-button name="info-circle" label="About" @click="${() => this.aboutDialog?.show()}" class="info about-trigger"></sl-icon-button>
@@ -139,8 +139,8 @@ export class AppShell extends LitElement {
       </main>
 
       <footer>
-        <sl-dialog label="About" data-dialog-about class="about-dialog">
-          ${unsafeHTML(readmeHtml)}
+        <sl-dialog data-dialog-about class="about-dialog">
+          ${unsafeHTML(howtoHtml)}
           <sl-button slot="footer" variant="primary" @click="${() => this.aboutDialog?.hide()}">Close</sl-button>
         </sl-dialog>
       </footer>

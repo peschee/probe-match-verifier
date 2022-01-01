@@ -160,6 +160,14 @@ tr.white td.clear {
   height: auto;
 }
 
+.about-dialog::part(body) {
+  padding-top: 0;
+}
+
+.about-dialog code {
+  word-break: break-word;
+}
+
 .app-title {
   display: flex;
   align-items: center;
@@ -237,8 +245,10 @@ tr.white td.clear {
   font-size: var(--sl-font-size-medium);
 }
 
-.app-name > .full {
-  display: none;
+.app-name > .desc {
+  display: block;
+  font-size: var(--sl-font-size-x-small);
+  font-weight: lighter;
 }
 
 .section-title {
@@ -257,14 +267,6 @@ tr.white td.clear {
 @media screen, print and (min-width: 512px) {
   .app-name {
     font-size: var(--sl-font-size-large);
-  }
-
-  .app-name > .full {
-    display: block;
-  }
-
-  .app-name > .short {
-    display: none;
   }
 }
 

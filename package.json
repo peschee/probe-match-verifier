@@ -1,7 +1,8 @@
 {
   "name": "probe-match-verifier",
   "version": "0.0.0",
-  "description": "ColourSpace Probe Match Verifier",
+  "title": "Probe Match Verifier",
+  "description": "A probe match verification tool for ColourSpace.",
   "private": true,
   "scripts": {
     "start": "vite",

@@ -10,11 +10,13 @@ export default defineConfig({
   plugins: [
     remarkHtml({
       allowDangerousHtml: true,
-      include: ['src/**/*.md', 'README.md'],
+      include: ['**/*.md'],
+      exclude: ['node_modules/**/*'],
     }),
     injectHtml({
       data: {
-        title: pkg.description,
+        title: pkg.title,
+        description: pkg.description,
       },
     }),
   ],
