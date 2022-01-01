@@ -71,6 +71,6 @@
   },
   "simple-git-hooks": {
     "pre-commit": "pnpx lint-staged",
-    "pre-push": "pnpm run lint && pnpm test"
+    "pre-push": "CI=1 pnpm run lint && pnpm test"
   }
 }
