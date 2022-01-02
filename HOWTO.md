@@ -39,7 +39,7 @@
       </tr>
     </table>
 
-   Use can download these patch sets for [FULL](./Probe-Matching-Verification_FULL.csv) or [LEGAL](./Probe-Matching-Verification_LEGAL.csv).
+   Use can **download** these patch sets for [FULL](./Probe-Matching-Verification_FULL.csv) or [LEGAL](./Probe-Matching-Verification_LEGAL.csv).
 
    When using this tool, we suggest not using Patch Scale Extended. Patch Scale Extended uses Legal Range values for matching `222` but requires additional `255` patch to save the profile.
 
@@ -53,4 +53,4 @@
 
 5. Copy these files somewhere outside of Windows system folders (e.g. `Desktop`), otherwise you won't be able to select them in the web application.
 
-6. Load both files in the UI. The probe match verifier will compute whether the measurements are within Maximum Accepted Tolerance Levels (`+/- 0.001` for `x,y` as well as `+/- 1.5%` for `Y`).
+6. Load both files in the UI. The probe match verifier will compute whether the measurements are within Maximum Accepted Tolerance Levels (`+/- 0.001` for `xy` and `+/- 1.5%` for `Y`).
