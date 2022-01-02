@@ -139,7 +139,7 @@ export class AppShell extends LitElement {
 
       <footer>
         <sl-dialog data-dialog-about class="about-dialog">
-          <wc-markdown src="/HOWTO.md"></wc-markdown>
+          <wc-markdown src="${import.meta.env.BASE_URL}HOWTO.md"></wc-markdown>
           <sl-button slot="footer" variant="primary" @click="${() => this.aboutDialog?.hide()}">Close</sl-button>
         </sl-dialog>
       </footer>
