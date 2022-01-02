@@ -234,7 +234,7 @@ tr.white td.clear {
 
 @media screen and (min-width: 1024px) {
   .app-content {
-    grid-template-columns: fit-content(20%) auto;
+    grid-template-columns: fit-content(100%) auto;
   }
 }
 
