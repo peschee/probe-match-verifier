@@ -28,7 +28,7 @@ specifiers:
   vite: ^2.7.10
   vite-plugin-html: ^2.1.2
   vite-remark-html: ^1.1.1
-  vitest: ^0.0.126
+  vitest: ^0.0.127
 
 dependencies:
   '@shoelace-style/shoelace': 2.0.0-beta.63
@@ -60,7 +60,7 @@ devDependencies:
   vite: 2.7.10
   vite-plugin-html: 2.1.2_vite@2.7.10
   vite-remark-html: 1.1.1_vite@2.7.10
-  vitest: 0.0.126_c8@7.11.0
+  vitest: 0.0.127_c8@7.11.0
 
 packages:
 
@@ -4407,8 +4407,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.0.126_c8@7.11.0:
-    resolution: {integrity: sha512-E0ibQGD5zh6zQhYSBuheoDhyn7Gyjr8FRtsxdyYkRyEX5U1+OpgUYwio58TeM3a4bdJ3xQoKxa5quhV9C9Zrkg==}
+  /vitest/0.0.127_c8@7.11.0:
+    resolution: {integrity: sha512-FAmM07fmSr4UZiQgBIvShewiQeUxj5RxzGkgKjAfNygABm2iZmeR2gm6syGzx3HYsbFWMV9oYAjcnE7ZK5IGoQ==}
     engines: {node: '>=14.14.0'}
     hasBin: true
     peerDependencies:
