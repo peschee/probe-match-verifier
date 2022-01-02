@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@shoelace-style/shoelace': ^2.0.0-beta.63
-  '@types/node': ^17.0.5
+  '@types/node': ^17.0.6
   '@typescript-eslint/eslint-plugin': ^5.8.1
   '@typescript-eslint/parser': ^5.8.1
   '@vanillawc/wc-markdown': ^1.6.11
@@ -28,7 +28,7 @@ specifiers:
   vite: ^2.7.10
   vite-plugin-html: ^2.1.2
   vite-remark-html: ^1.1.1
-  vitest: ^0.0.125
+  vitest: ^0.0.126
 
 dependencies:
   '@shoelace-style/shoelace': 2.0.0-beta.63
@@ -40,7 +40,7 @@ dependencies:
   normalize.css: 8.0.1
 
 devDependencies:
-  '@types/node': 17.0.5
+  '@types/node': 17.0.6
   '@typescript-eslint/eslint-plugin': 5.8.1_13039593e64cd539d0b4c5c2da390958
   '@typescript-eslint/parser': 5.8.1_eslint@8.6.0+typescript@4.5.4
   c8: 7.11.0
@@ -60,7 +60,7 @@ devDependencies:
   vite: 2.7.10
   vite-plugin-html: 2.1.2_vite@2.7.10
   vite-remark-html: 1.1.1_vite@2.7.10
-  vitest: 0.0.125_c8@7.11.0
+  vitest: 0.0.126_c8@7.11.0
 
 packages:
 
@@ -221,7 +221,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 3.0.5
-      '@types/node': 17.0.5
+      '@types/node': 17.0.6
     dev: true
 
   /@types/istanbul-lib-coverage/2.0.4:
@@ -246,8 +246,8 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/node/17.0.5:
-    resolution: {integrity: sha512-w3mrvNXLeDYV1GKTZorGJQivK6XLCoGwpnyJFbJVK/aTBQUxOCaa/GlFAAN3OTDFcb7h5tiFG+YXCO2By+riZw==}
+  /@types/node/17.0.6:
+    resolution: {integrity: sha512-+XBAjfZmmivILUzO0HwBJoYkAyyySSLg5KCGBDFLomJo0sV6szvVLAf4ANZZ0pfWzgEds5KmGLG9D5hfEqOhaA==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
@@ -4407,8 +4407,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.0.125_c8@7.11.0:
-    resolution: {integrity: sha512-gJc2avxoSiA83OtMFcXUymi4BoCFPw8/+/3FCT1IjBQvUHRfUDrf2tYTGcbkeoqIz39f6b0rkZ27eNocVkQifg==}
+  /vitest/0.0.126_c8@7.11.0:
+    resolution: {integrity: sha512-E0ibQGD5zh6zQhYSBuheoDhyn7Gyjr8FRtsxdyYkRyEX5U1+OpgUYwio58TeM3a4bdJ3xQoKxa5quhV9C9Zrkg==}
     engines: {node: '>=14.14.0'}
     hasBin: true
     peerDependencies:
