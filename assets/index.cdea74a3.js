@@ -49,7 +49,7 @@ import{C as F,f as x,o as $,t as m,i as y,s as C,p as c,T as h,M as w,a as R,n a
 
       <footer>
         <sl-dialog data-dialog-about class="about-dialog">
-          <wc-markdown src="/HOWTO.md"></wc-markdown>
+          <wc-markdown src="${"/probe-match-verifier/"}HOWTO.md"></wc-markdown>
           <sl-button slot="footer" variant="primary" @click="${()=>{var e;return(e=this.aboutDialog)==null?void 0:e.hide()}}">Close</sl-button>
         </sl-dialog>
       </footer>
