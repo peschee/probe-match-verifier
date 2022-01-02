@@ -1,6 +1,5 @@
 import { html, LitElement, nothing, PropertyValues, unsafeCSS } from 'lit';
 import { customElement, query, state } from 'lit/decorators.js';
-import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { fileOpen, supported } from 'browser-fs-access';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
@@ -10,13 +9,13 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/badge/badge.js';
 import '@shoelace-style/shoelace/dist/components/dialog/dialog.js';
 import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
+import '@vanillawc/wc-markdown';
 
 import { capitalizeFirstLetter, formatNumber, relativeDifference } from './util/functions';
 import { ColorName, ColourSpaceXML, RGBW, xyY } from './util/ColourSpaceXML';
 import styles from './app-shell.css?inline';
 import logoUrl from '../color-spectrum.png';
 import pkg from '../package.json';
-import howtoHtml from './../HOWTO.md';
 
 setBasePath(`${import.meta.env.BASE_URL}shoelace`);
 
@@ -140,7 +139,7 @@ export class AppShell extends LitElement {
 
       <footer>
         <sl-dialog data-dialog-about class="about-dialog">
-          ${unsafeHTML(howtoHtml)}
+          <wc-markdown src="/HOWTO.md"></wc-markdown>
           <sl-button slot="footer" variant="primary" @click="${() => this.aboutDialog?.hide()}">Close</sl-button>
         </sl-dialog>
       </footer>

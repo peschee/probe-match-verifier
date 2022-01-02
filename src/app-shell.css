@@ -69,6 +69,7 @@ table {
 
 td {
   padding: var(--sl-spacing-x-small) var(--sl-spacing-x-small);
+  font-weight: 600;
 }
 
 th {
@@ -83,9 +84,8 @@ tr.separator th {
   text-align: right;
 }
 
-td {
+.app-content td {
   text-align: right;
-  font-weight: 600;
 }
 
 th {
@@ -166,6 +166,19 @@ tr.white td.clear {
 
 .about-dialog code {
   word-break: break-word;
+}
+
+.about-dialog th {
+  text-align: left;
+}
+
+.about-dialog td {
+  vertical-align: top;
+}
+
+.about-dialog ol {
+  margin-left: 0;
+  padding-left: var(--sl-spacing-large);
 }
 
 .app-title {

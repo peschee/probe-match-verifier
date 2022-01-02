@@ -14,6 +14,6 @@
 
 A probe match verification tool for [ColourSpace].
 
-For a description on how-to use this, see the [HOWTO](./HOWTO.md).
+For a description on how-to use this, see the [HOWTO](public/HOWTO.md).
 
 [colourspace]: https://www.lightillusion.com/colourspace.html
