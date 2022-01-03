@@ -1,5 +1,5 @@
 import { html, LitElement, nothing, PropertyValues, unsafeCSS } from 'lit';
-import { customElement, query, state } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { fileOpen, supported } from 'browser-fs-access';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
@@ -27,6 +27,9 @@ type xyYErrors = {
 
 @customElement('app-shell')
 export class AppShell extends LitElement {
+  @property()
+  version?: string;
+
   @state()
   referenceBpd?: File;
 
@@ -69,6 +72,8 @@ export class AppShell extends LitElement {
 
   async connectedCallback() {
     super.connectedCallback();
+
+    console.info(`Version: ${this.version}`);
 
     if (DEBUG) {
       const { default: referenceBpd } = await import('../test/fixtures/i1pro2.bpd?raw');

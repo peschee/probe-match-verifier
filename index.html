@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <app-shell></app-shell>
+    <app-shell <% if (BUILD_VERSION) { %>version="<%- BUILD_VERSION %>"<% } %>></app-shell>
   </body>
   <script type="module" src="/src/app-shell.ts"></script>
   <% if (INJECT_ANALYTICS == 1) { %>
