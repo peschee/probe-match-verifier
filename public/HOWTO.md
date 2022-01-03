@@ -52,6 +52,8 @@
 
    `.bpd` files should be in `C:\Users\USERNAME\AppData\Roaming\ColourSpace\MCGD`.
 
+   See [this post on AVS Forum](https://www.avsforum.com/threads/colourspace-cms-next-generation-calibration-thread.3049142/post-61311991) on how-to **export** these files directly from ColourSpace.
+
 5. Copy these files somewhere outside of Windows system folders (e.g. `Desktop`), otherwise you won't be able to select them in the web application.
 
 6. Load both files in the UI. The probe match verifier will compute whether the measurements are within Maximum Accepted Tolerance Levels (`+/- 0.001` for `xy` and `+/- 1.5%` for `Y`).
