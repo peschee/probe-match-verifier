@@ -4,3 +4,4 @@
 /coverage
 /public/shoelace
 /package-lock.json
+/.env.local
