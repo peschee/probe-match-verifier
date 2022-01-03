@@ -96,7 +96,12 @@ export class AppShell extends LitElement {
             <span class="desc">${pkg.description}</span>
           </span>
         </h1>
-        <sl-icon-button name="info-circle" label="About" @click="${() => this.aboutDialog?.show()}" class="info about-trigger"></sl-icon-button>
+        <sl-icon-button
+          name="info-circle"
+          label="About"
+          @click="${() => this.aboutDialog?.show()}"
+          class="info about-trigger umami--click--about-button"
+        ></sl-icon-button>
       </header>
 
       <main class="app-content" data-app-content>
@@ -108,7 +113,7 @@ export class AppShell extends LitElement {
                 <span class="text">Reference File (.bpd)</span>
                 <sl-badge class="badge">Spectro</sl-badge>
               </span>
-              <sl-button size="small" @click="${this.openReferenceBpdFile}" class="button load-file-button icon-button"
+              <sl-button size="small" @click="${this.openReferenceBpdFile}" class="button load-file-button icon-button umami--click--bpd-button"
                 ><sl-icon name="file-earmark-text" class="icon"></sl-icon> Load</sl-button
               >
             </h2>
@@ -121,7 +126,7 @@ export class AppShell extends LitElement {
                 <span class="text">Verification File (.bcs)</span>
                 <sl-badge variant="neutral" class="badge">Meter</sl-badge>
               </span>
-              <sl-button size="small" @click="${this.openVerificationBcsFile}" class="button load-file-button icon-button"
+              <sl-button size="small" @click="${this.openVerificationBcsFile}" class="button load-file-button icon-button umami--click--bcs-button"
                 ><sl-icon name="file-earmark-text" class="icon"></sl-icon> Load</sl-button
               >
             </h2>
