@@ -31,5 +31,5 @@ jobs:
       - name: Test
         run: pnpm run test
 
-      - name: Test
+      - name: Build
         run: pnpm run build
