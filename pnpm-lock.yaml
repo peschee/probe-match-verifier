@@ -8,7 +8,7 @@ specifiers:
   '@vanillawc/wc-markdown': ^1.6.11
   browser-fs-access: ^0.29.5
   c8: ^7.11.2
-  cie-colorconverter: ^2.0.3
+  cie-colorconverter: ^3.1.0
   cpy-cli: ^4.1.0
   eslint: ^8.15.0
   eslint-config-prettier: ^8.5.0
@@ -34,7 +34,7 @@ dependencies:
   '@shoelace-style/shoelace': 2.0.0-beta.73
   '@vanillawc/wc-markdown': 1.6.11
   browser-fs-access: 0.29.5
-  cie-colorconverter: 2.0.3
+  cie-colorconverter: 3.1.0
   fast-xml-parser: 4.0.7
   lit: 2.2.3
   normalize.css: 8.0.1
@@ -756,8 +756,8 @@ packages:
     resolution: {integrity: sha1-V00xLt2Iu13YkS6Sht1sCu1KrII=}
     dev: true
 
-  /cie-colorconverter/2.0.3:
-    resolution: {integrity: sha512-7ZW9zHobrA/0ZMiD01aq0VHON6MxgrgvhauUFSKsSlwZywl3xU8at397kRkSzqHYSK6ZovgJa+NaCixc4pLNaA==}
+  /cie-colorconverter/3.1.0:
+    resolution: {integrity: sha512-lxvl45xw7gdxAZO6epCmkOmVbsGffgDgnOijAh0Qy+x/6pN9SHn5l3FdTcpbupIsV1+VUxATty3IB0eGczZ2KQ==}
     dev: false
 
   /class-utils/0.3.6:

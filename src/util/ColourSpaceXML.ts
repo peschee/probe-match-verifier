@@ -1,5 +1,5 @@
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
-import { ColorConverter } from 'cie-colorconverter';
+import { XYZToxyY } from 'cie-colorconverter';
 
 export type RGBW = Array<Array<number>>;
 
@@ -29,8 +29,6 @@ type BscPatch = {
 };
 
 export class ColourSpaceXML {
-  private colorConverter = new ColorConverter();
-
   private isDebug = false;
 
   constructor({ debug = false } = {}) {
@@ -105,10 +103,10 @@ export class ColourSpaceXML {
     }
 
     // Convert to XYZ --> xyY
-    const redxyY = this.colorConverter.XYZ_to_xyY([redXYZ.X, redXYZ.Y, redXYZ.Z]);
-    const greenxyY = this.colorConverter.XYZ_to_xyY([greenXYZ.X, greenXYZ.Y, greenXYZ.Z]);
-    const bluexyY = this.colorConverter.XYZ_to_xyY([blueXYZ.X, blueXYZ.Y, blueXYZ.Z]);
-    const whitexyY = this.colorConverter.XYZ_to_xyY([whiteXYZ.X, whiteXYZ.Y, whiteXYZ.Z]);
+    const redxyY = XYZToxyY([redXYZ.X, redXYZ.Y, redXYZ.Z]);
+    const greenxyY = XYZToxyY([greenXYZ.X, greenXYZ.Y, greenXYZ.Z]);
+    const bluexyY = XYZToxyY([blueXYZ.X, blueXYZ.Y, blueXYZ.Z]);
+    const whitexyY = XYZToxyY([whiteXYZ.X, whiteXYZ.Y, whiteXYZ.Z]);
 
     return [
       [redxyY[0], greenxyY[0], bluexyY[0], whitexyY[0]],
