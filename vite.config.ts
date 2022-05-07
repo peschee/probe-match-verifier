@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [
     // @see https://github.com/vbenjs/vite-plugin-html
     createHtmlPlugin({
-      entry: '/src/main.ts',
+      entry: '/src/app-shell.ts',
       inject: {
         data: {
           title: pkg.title,
