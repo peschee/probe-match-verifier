@@ -291,7 +291,8 @@
       "round",
       "rotate",
       "refresh",
-      "reload"
+      "reload",
+      "redo"
     ]
   },
   {
@@ -307,7 +308,8 @@
       "turn",
       "around",
       "round",
-      "rotate"
+      "rotate",
+      "undo"
     ]
   },
   {
@@ -578,7 +580,8 @@
       "turn",
       "around",
       "round",
-      "rotate"
+      "rotate",
+      "sync"
     ]
   },
   {
@@ -665,6 +668,32 @@
     ],
     "tags": [
       "arrow"
+    ]
+  },
+  {
+    "name": "arrow-through-heart-fill",
+    "title": "Arrow through heart fill",
+    "categories": [
+      "Arrows",
+      "Love"
+    ],
+    "tags": [
+      "cupid",
+      "love",
+      "valentine"
+    ]
+  },
+  {
+    "name": "arrow-through-heart",
+    "title": "Arrow through heart",
+    "categories": [
+      "Arrows",
+      "Love"
+    ],
+    "tags": [
+      "cupid",
+      "love",
+      "valentine"
     ]
   },
   {
@@ -1187,6 +1216,30 @@
     ]
   },
   {
+    "name": "badge-sd-fill",
+    "title": "Badge SD fill",
+    "categories": [
+      "Badges"
+    ],
+    "tags": [
+      "display",
+      "resolution",
+      "standard definition"
+    ]
+  },
+  {
+    "name": "badge-sd",
+    "title": "Badge Sd",
+    "categories": [
+      "Badges"
+    ],
+    "tags": [
+      "display",
+      "resolution",
+      "standard definition"
+    ]
+  },
+  {
     "name": "badge-tm-fill",
     "title": "Badge tm fill",
     "categories": [
@@ -1348,6 +1401,36 @@
     ]
   },
   {
+    "name": "bag-heart-fill",
+    "title": "Bag heart fill",
+    "categories": [
+      "Commerce"
+    ],
+    "tags": [
+      "shopping",
+      "cart",
+      "purchase",
+      "buy",
+      "valentine",
+      "love"
+    ]
+  },
+  {
+    "name": "bag-heart",
+    "title": "Bag heart",
+    "categories": [
+      "Commerce"
+    ],
+    "tags": [
+      "shopping",
+      "cart",
+      "purchase",
+      "buy",
+      "valentine",
+      "love"
+    ]
+  },
+  {
     "name": "bag-plus-fill",
     "title": "Bag plus fill",
     "categories": [
@@ -1417,6 +1500,52 @@
       "cart",
       "purchase",
       "buy"
+    ]
+  },
+  {
+    "name": "balloon-fill",
+    "title": "Balloon fill",
+    "categories": [
+      "Real World"
+    ],
+    "tags": [
+      "birthday"
+    ]
+  },
+  {
+    "name": "balloon-heart-fill",
+    "title": "Balloon heart fill",
+    "categories": [
+      "Real World",
+      "Love"
+    ],
+    "tags": [
+      "birthday",
+      "valentine",
+      "love"
+    ]
+  },
+  {
+    "name": "balloon-heart",
+    "title": "Balloon heart",
+    "categories": [
+      "Real World",
+      "Love"
+    ],
+    "tags": [
+      "birthday",
+      "valentine",
+      "love"
+    ]
+  },
+  {
+    "name": "balloon",
+    "title": "Balloon",
+    "categories": [
+      "Real World"
+    ],
+    "tags": [
+      "birthday"
     ]
   },
   {
@@ -2490,11 +2619,79 @@
     ]
   },
   {
+    "name": "box2-fill",
+    "title": "Box2 fill",
+    "categories": [
+      "Real World",
+      "Love"
+    ],
+    "tags": [
+      "cardboard",
+      "package",
+      "cube"
+    ]
+  },
+  {
+    "name": "box2-heart-fill",
+    "title": "Box2 heart fill",
+    "categories": [
+      "Real World",
+      "Love"
+    ],
+    "tags": [
+      "cardboard",
+      "package",
+      "cube",
+      "gift",
+      "valentine",
+      "love"
+    ]
+  },
+  {
+    "name": "box2-heart",
+    "title": "Box2 heart",
+    "categories": [
+      "Real World",
+      "Love"
+    ],
+    "tags": [
+      "cardboard",
+      "package",
+      "cube",
+      "gift",
+      "valentine",
+      "love"
+    ]
+  },
+  {
+    "name": "box2",
+    "title": "Box2",
+    "categories": [
+      "Real World"
+    ],
+    "tags": [
+      "cardboard",
+      "package",
+      "cube"
+    ]
+  },
+  {
     "name": "boxes",
     "title": "Boxes",
     "categories": null,
     "tags": [
       "cube"
+    ]
+  },
+  {
+    "name": "braces-asterisk",
+    "title": "Braces asterisk",
+    "categories": [
+      "Typography"
+    ],
+    "tags": [
+      "code",
+      "css"
     ]
   },
   {
@@ -2888,6 +3085,36 @@
     ]
   },
   {
+    "name": "calendar-heart-fill",
+    "title": "Calendar heart fill",
+    "categories": [
+      "Date and time",
+      "Love"
+    ],
+    "tags": [
+      "date",
+      "time",
+      "month",
+      "valentine",
+      "date"
+    ]
+  },
+  {
+    "name": "calendar-heart",
+    "title": "Calendar heart",
+    "categories": [
+      "Date and time",
+      "Love"
+    ],
+    "tags": [
+      "date",
+      "time",
+      "month",
+      "valentine",
+      "date"
+    ]
+  },
+  {
     "name": "calendar-minus-fill",
     "title": "Calendar minus fill",
     "categories": [
@@ -3157,6 +3384,36 @@
       "date",
       "time",
       "month"
+    ]
+  },
+  {
+    "name": "calendar2-heart-fill",
+    "title": "Calendar2 heart fill",
+    "categories": [
+      "Date and time",
+      "Love"
+    ],
+    "tags": [
+      "date",
+      "time",
+      "month",
+      "valentine",
+      "date"
+    ]
+  },
+  {
+    "name": "calendar2-heart",
+    "title": "Calendar2 heart",
+    "categories": [
+      "Date and time",
+      "Love"
+    ],
+    "tags": [
+      "date",
+      "time",
+      "month",
+      "valentine",
+      "date"
     ]
   },
   {
@@ -4137,6 +4394,36 @@
     ]
   },
   {
+    "name": "chat-heart-fill",
+    "title": "Chat heart fill",
+    "categories": [
+      "Communications",
+      "Love"
+    ],
+    "tags": [
+      "chat bubble",
+      "text",
+      "message",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "chat-heart",
+    "title": "Chat heart",
+    "categories": [
+      "Communications",
+      "Love"
+    ],
+    "tags": [
+      "chat bubble",
+      "text",
+      "message",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
     "name": "chat-left-dots-fill",
     "title": "Chat left dots fill",
     "categories": [
@@ -4172,6 +4459,36 @@
       "chat bubble",
       "text",
       "message"
+    ]
+  },
+  {
+    "name": "chat-left-heart-fill",
+    "title": "Chat left heart fill",
+    "categories": [
+      "Communications",
+      "Love"
+    ],
+    "tags": [
+      "chat bubble",
+      "text",
+      "message",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "chat-left-heart",
+    "title": "Chat left heart",
+    "categories": [
+      "Communications",
+      "Love"
+    ],
+    "tags": [
+      "chat bubble",
+      "text",
+      "message",
+      "valentine",
+      "romance"
     ]
   },
   {
@@ -4301,6 +4618,36 @@
     ]
   },
   {
+    "name": "chat-right-heart-fill",
+    "title": "Chat right heart fill",
+    "categories": [
+      "Communications",
+      "Love"
+    ],
+    "tags": [
+      "chat bubble",
+      "text",
+      "message",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "chat-right-heart",
+    "title": "Chat right heart",
+    "categories": [
+      "Communications",
+      "Love"
+    ],
+    "tags": [
+      "chat bubble",
+      "text",
+      "message",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
     "name": "chat-right-quote-fill",
     "title": "Chat right quote fill",
     "categories": [
@@ -4398,6 +4745,36 @@
       "chat bubble",
       "text",
       "message"
+    ]
+  },
+  {
+    "name": "chat-square-heart-fill",
+    "title": "Chat square heart fill",
+    "categories": [
+      "Communications",
+      "Love"
+    ],
+    "tags": [
+      "chat bubble",
+      "text",
+      "message",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "chat-square-heart",
+    "title": "Chat square heart",
+    "categories": [
+      "Communications",
+      "Love"
+    ],
+    "tags": [
+      "chat bubble",
+      "text",
+      "message",
+      "valentine",
+      "romance"
     ]
   },
   {
@@ -4879,6 +5256,17 @@
     ]
   },
   {
+    "name": "clipboard-check-fill",
+    "title": "Clipboard check fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
     "name": "clipboard-check",
     "title": "Clipboard check",
     "categories": [
@@ -4887,6 +5275,21 @@
     "tags": [
       "copy",
       "paste"
+    ]
+  },
+  {
+    "name": "clipboard-data-fill",
+    "title": "Clipboard data fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste",
+      "data",
+      "analytics",
+      "graph",
+      "chart"
     ]
   },
   {
@@ -4905,6 +5308,50 @@
     ]
   },
   {
+    "name": "clipboard-fill",
+    "title": "Clipboard fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard-heart-fill",
+    "title": "Clipboard heart fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard-heart",
+    "title": "Clipboard heart",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard-minus-fill",
+    "title": "Clipboard minus fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
     "name": "clipboard-minus",
     "title": "Clipboard minus",
     "categories": [
@@ -4916,8 +5363,41 @@
     ]
   },
   {
+    "name": "clipboard-plus-fill",
+    "title": "Clipboard plus fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
     "name": "clipboard-plus",
     "title": "Clipboard plus",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard-pulse",
+    "title": "Clipboard pulse",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard-x-fill",
+    "title": "Clipboard x fill",
     "categories": [
       "Real world"
     ],
@@ -4940,6 +5420,194 @@
   {
     "name": "clipboard",
     "title": "Clipboard",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard2-check-fill",
+    "title": "Clipboard2 check fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard2-check",
+    "title": "Clipboard2 check",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard2-data-fill",
+    "title": "Clipboard2 data fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste",
+      "data",
+      "analytics",
+      "graph",
+      "chart"
+    ]
+  },
+  {
+    "name": "clipboard2-data",
+    "title": "Clipboard2 data",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste",
+      "data",
+      "analytics",
+      "graph",
+      "chart"
+    ]
+  },
+  {
+    "name": "clipboard2-fill",
+    "title": "Clipboard2 fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard2-heart-fill",
+    "title": "Clipboard2 heart fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard2-heart",
+    "title": "Clipboard2 heart",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard2-minus-fill",
+    "title": "Clipboard2 minus fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard2-minus",
+    "title": "Clipboard2 minus",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard2-plus-fill",
+    "title": "Clipboard2 plus fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard2-plus",
+    "title": "Clipboard2 plus",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard2-pulse-fill",
+    "title": "Clipboard2 pulse fill",
+    "categories": [
+      "Real world",
+      "Medical"
+    ],
+    "tags": [
+      "copy",
+      "paste",
+      "heartrate"
+    ]
+  },
+  {
+    "name": "clipboard2-pulse",
+    "title": "Clipboard2 pulse",
+    "categories": [
+      "Real world",
+      "Medical"
+    ],
+    "tags": [
+      "copy",
+      "paste",
+      "heartrate"
+    ]
+  },
+  {
+    "name": "clipboard2-x-fill",
+    "title": "Clipboard2 x fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard2-x",
+    "title": "Clipboard2 x",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "copy",
+      "paste"
+    ]
+  },
+  {
+    "name": "clipboard2",
+    "title": "Clipboard2",
     "categories": [
       "Real world"
     ],
@@ -6844,6 +7512,30 @@
     ]
   },
   {
+    "name": "emoji-kiss-fill",
+    "title": "Emoji kiss fill",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon",
+      "heart",
+      "love"
+    ]
+  },
+  {
+    "name": "emoji-kiss",
+    "title": "Emoji kiss",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon",
+      "heart",
+      "love"
+    ]
+  },
+  {
     "name": "emoji-laughing-fill",
     "title": "Emoji laughing fill",
     "categories": [
@@ -7065,6 +7757,38 @@
     ]
   },
   {
+    "name": "envelope-heart-fill",
+    "title": "Envelope heart fill",
+    "categories": [
+      "Communications"
+    ],
+    "tags": [
+      "email",
+      "message",
+      "mail",
+      "letter",
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "envelope-heart",
+    "title": "Envelope heart",
+    "categories": [
+      "Communications"
+    ],
+    "tags": [
+      "email",
+      "message",
+      "mail",
+      "letter",
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
     "name": "envelope-open-fill",
     "title": "Envelope open fill",
     "categories": [
@@ -7078,8 +7802,98 @@
     ]
   },
   {
+    "name": "envelope-open-heart-fill",
+    "title": "Envelope open heart fill",
+    "categories": [
+      "Communications"
+    ],
+    "tags": [
+      "email",
+      "message",
+      "mail",
+      "letter",
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "envelope-open-heart",
+    "title": "Envelope open heart",
+    "categories": [
+      "Communications"
+    ],
+    "tags": [
+      "email",
+      "message",
+      "mail",
+      "letter",
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
     "name": "envelope-open",
     "title": "Envelope open",
+    "categories": [
+      "Communications"
+    ],
+    "tags": [
+      "email",
+      "message",
+      "mail",
+      "letter"
+    ]
+  },
+  {
+    "name": "envelope-paper-fill",
+    "title": "Envelope paper fill",
+    "categories": [
+      "Communications"
+    ],
+    "tags": [
+      "email",
+      "message",
+      "mail",
+      "letter"
+    ]
+  },
+  {
+    "name": "envelope-paper-heart-fill",
+    "title": "Envelope paper heart fill",
+    "categories": [
+      "Communications"
+    ],
+    "tags": [
+      "email",
+      "message",
+      "mail",
+      "letter",
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "envelope-paper-heart",
+    "title": "Envelope paper heart",
+    "categories": [
+      "Communications"
+    ],
+    "tags": [
+      "email",
+      "message",
+      "mail",
+      "letter",
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "envelope-paper",
+    "title": "Envelope paper",
     "categories": [
       "Communications"
     ],
@@ -9097,6 +9911,612 @@
     ]
   },
   {
+    "name": "filetype-aac",
+    "title": "Filetype aac",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-ai",
+    "title": "Filetype ai",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-bmp",
+    "title": "Filetype bmp",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-cs",
+    "title": "Filetype cs",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code"
+    ]
+  },
+  {
+    "name": "filetype-css",
+    "title": "Filetype css",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "stylesheet"
+    ]
+  },
+  {
+    "name": "filetype-csv",
+    "title": "Filetype csv",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-doc",
+    "title": "Filetype doc",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-docx",
+    "title": "Filetype docx",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-exe",
+    "title": "Filetype exe",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-gif",
+    "title": "Filetype gif",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-heic",
+    "title": "Filetype heic",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-html",
+    "title": "Filetype html",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "html"
+    ]
+  },
+  {
+    "name": "filetype-java",
+    "title": "Filetype java",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "java"
+    ]
+  },
+  {
+    "name": "filetype-jpg",
+    "title": "Filetype jpg",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-js",
+    "title": "Filetype js",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "javascript"
+    ]
+  },
+  {
+    "name": "filetype-json",
+    "title": "Filetype json",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "javascript"
+    ]
+  },
+  {
+    "name": "filetype-jsx",
+    "title": "Filetype jsx",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "javascript",
+      "react"
+    ]
+  },
+  {
+    "name": "filetype-key",
+    "title": "Filetype key",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "keynote"
+    ]
+  },
+  {
+    "name": "filetype-m4p",
+    "title": "Filetype m4p",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-md",
+    "title": "Filetype md",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "markdown"
+    ]
+  },
+  {
+    "name": "filetype-mdx",
+    "title": "Filetype mdx",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-mov",
+    "title": "Filetype mov",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-mp3",
+    "title": "Filetype mp3",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-mp4",
+    "title": "Filetype mp4",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-otf",
+    "title": "Filetype otf",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "font",
+      "type"
+    ]
+  },
+  {
+    "name": "filetype-pdf",
+    "title": "Filetype pdf",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-php",
+    "title": "Filetype php",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code"
+    ]
+  },
+  {
+    "name": "filetype-png",
+    "title": "Filetype png",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-ppt",
+    "title": "Filetype ppt",
+    "categories": null,
+    "tags": null
+  },
+  {
+    "name": "filetype-pptx",
+    "title": "Filetype pptx",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-psd",
+    "title": "Filetype psd",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-py",
+    "title": "Filetype py",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "python"
+    ]
+  },
+  {
+    "name": "filetype-raw",
+    "title": "Filetype raw",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-rb",
+    "title": "Filetype rb",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "ruby"
+    ]
+  },
+  {
+    "name": "filetype-sass",
+    "title": "Filetype sass",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "css",
+      "stylesheet"
+    ]
+  },
+  {
+    "name": "filetype-scss",
+    "title": "Filetype scss",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "css",
+      "stylesheet"
+    ]
+  },
+  {
+    "name": "filetype-sh",
+    "title": "Filetype sh",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "shell"
+    ]
+  },
+  {
+    "name": "filetype-svg",
+    "title": "Filetype svg",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code"
+    ]
+  },
+  {
+    "name": "filetype-tiff",
+    "title": "Filetype tiff",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-tsx",
+    "title": "Filetype tsx",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "typescript"
+    ]
+  },
+  {
+    "name": "filetype-ttf",
+    "title": "Filetype ttf",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "font",
+      "type"
+    ]
+  },
+  {
+    "name": "filetype-txt",
+    "title": "Filetype txt",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-wav",
+    "title": "Filetype wav",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-woff",
+    "title": "Filetype woff",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "font",
+      "type"
+    ]
+  },
+  {
+    "name": "filetype-xls",
+    "title": "Filetype xls",
+    "categories": null,
+    "tags": null
+  },
+  {
+    "name": "filetype-xlsx",
+    "title": "Filetype xlsx",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension"
+    ]
+  },
+  {
+    "name": "filetype-xml",
+    "title": "Filetype xml",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code"
+    ]
+  },
+  {
+    "name": "filetype-yml",
+    "title": "Filetype yml",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "file type",
+      "extension",
+      "code",
+      "yaml"
+    ]
+  },
+  {
     "name": "film",
     "title": "Film",
     "categories": [
@@ -10197,6 +11617,18 @@
     ]
   },
   {
+    "name": "heart-arrow",
+    "title": "Heart arrow",
+    "categories": [
+      "Love"
+    ],
+    "tags": [
+      "romance",
+      "cupid",
+      "valentine"
+    ]
+  },
+  {
     "name": "heart-fill",
     "title": "Heart fill",
     "categories": [
@@ -10219,6 +11651,26 @@
     ]
   },
   {
+    "name": "heart-pulse-fill",
+    "title": "Heart pulse fill",
+    "categories": [
+      "Medical"
+    ],
+    "tags": [
+      "heartbeat"
+    ]
+  },
+  {
+    "name": "heart-pulse",
+    "title": "Heart pulse",
+    "categories": [
+      "Medical"
+    ],
+    "tags": [
+      "heartbeat"
+    ]
+  },
+  {
     "name": "heart",
     "title": "Heart",
     "categories": [
@@ -10227,6 +11679,43 @@
     "tags": [
       "love",
       "favorite"
+    ]
+  },
+  {
+    "name": "heartbreak-fill",
+    "title": "Heartbreak fill",
+    "categories": [
+      "Emoji",
+      "Love"
+    ],
+    "tags": [
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "heartbreak",
+    "title": "Heartbreak",
+    "categories": [
+      "Emoji",
+      "Love"
+    ],
+    "tags": [
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "hearts",
+    "title": "Hearts",
+    "categories": [
+      "Love"
+    ],
+    "tags": [
+      "romance",
+      "valentine"
     ]
   },
   {
@@ -10293,6 +11782,28 @@
     "tags": [
       "shape",
       "polygon"
+    ]
+  },
+  {
+    "name": "hospital-fill",
+    "title": "Hospital fill",
+    "categories": [
+      "Medical"
+    ],
+    "tags": [
+      "health",
+      "emergency room"
+    ]
+  },
+  {
+    "name": "hospital",
+    "title": "Hospital",
+    "categories": [
+      "Medical"
+    ],
+    "tags": [
+      "health",
+      "emergency room"
     ]
   },
   {
@@ -10379,6 +11890,30 @@
     ],
     "tags": [
       "home"
+    ]
+  },
+  {
+    "name": "house-heart-fill",
+    "title": "House heart fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "home",
+      "love",
+      "romance"
+    ]
+  },
+  {
+    "name": "house-heart",
+    "title": "House heart",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "home",
+      "love",
+      "romance"
     ]
   },
   {
@@ -10513,6 +12048,18 @@
       "mail",
       "email",
       "letter tray"
+    ]
+  },
+  {
+    "name": "incognito",
+    "title": "Incognito",
+    "categories": [
+      "Miscellaneous"
+    ],
+    "tags": [
+      "private",
+      "investigator",
+      "secret"
     ]
   },
   {
@@ -11494,6 +13041,26 @@
     ],
     "tags": [
       "magic stick"
+    ]
+  },
+  {
+    "name": "magnet-fill",
+    "title": "Magnet fill",
+    "categories": [
+      "Real World"
+    ],
+    "tags": [
+      "magnetic"
+    ]
+  },
+  {
+    "name": "magnet",
+    "title": "Magnet",
+    "categories": [
+      "Real World"
+    ],
+    "tags": [
+      "magnetic"
     ]
   },
   {
@@ -12893,6 +14460,40 @@
     ]
   },
   {
+    "name": "person-heart",
+    "title": "Person heart",
+    "categories": [
+      "People"
+    ],
+    "tags": [
+      "human",
+      "individual",
+      "avatar",
+      "user",
+      "account",
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "person-hearts",
+    "title": "Person hearts",
+    "categories": [
+      "People"
+    ],
+    "tags": [
+      "human",
+      "individual",
+      "avatar",
+      "user",
+      "account",
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
     "name": "person-lines-fill",
     "title": "Person lines fill",
     "categories": [
@@ -13074,6 +14675,17 @@
   {
     "name": "phone-fill",
     "title": "Phone fill",
+    "categories": [
+      "Devices"
+    ],
+    "tags": [
+      "mobile",
+      "telephone"
+    ]
+  },
+  {
+    "name": "phone-flip",
+    "title": "Phone flip",
     "categories": [
       "Devices"
     ],
@@ -13403,6 +15015,17 @@
     ]
   },
   {
+    "name": "plugin",
+    "title": "Plugin",
+    "categories": [
+      "UI"
+    ],
+    "tags": [
+      "addon",
+      "software"
+    ]
+  },
+  {
     "name": "plus-circle-dotted",
     "title": "Plus circle dotted",
     "categories": [
@@ -13500,6 +15123,111 @@
     "tags": [
       "add",
       "new"
+    ]
+  },
+  {
+    "name": "postage-fill",
+    "title": "Postage fill",
+    "categories": [
+      "Real World"
+    ],
+    "tags": [
+      "mail",
+      "stamp",
+      "shipping"
+    ]
+  },
+  {
+    "name": "postage-heart-fill",
+    "title": "Postage heart fill",
+    "categories": [
+      "Real World",
+      "Love"
+    ],
+    "tags": [
+      "mail",
+      "stamp",
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "postage-heart",
+    "title": "Postage heart",
+    "categories": [
+      "Real World",
+      "Love"
+    ],
+    "tags": [
+      "mail",
+      "stamp",
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "postage",
+    "title": "Postage",
+    "categories": [
+      "Real World"
+    ],
+    "tags": [
+      "stamp",
+      "shipping"
+    ]
+  },
+  {
+    "name": "postcard-fill",
+    "title": "Postcard fill",
+    "categories": [
+      "Real World"
+    ],
+    "tags": [
+      "mail",
+      "letter"
+    ]
+  },
+  {
+    "name": "postcard-heart-fill",
+    "title": "Postcard heart fill",
+    "categories": [
+      "Real World",
+      "Love"
+    ],
+    "tags": [
+      "mail",
+      "letter",
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "postcard-heart",
+    "title": "Postcard heart",
+    "categories": [
+      "Real World",
+      "Love"
+    ],
+    "tags": [
+      "mail",
+      "letter",
+      "love",
+      "valentine",
+      "romance"
+    ]
+  },
+  {
+    "name": "postcard",
+    "title": "Postcard",
+    "categories": [
+      "Real World"
+    ],
+    "tags": [
+      "mail",
+      "letter"
     ]
   },
   {
@@ -13783,7 +15511,8 @@
       "cellphone",
       "mobile",
       "carrier",
-      "network"
+      "network",
+      "signal"
     ]
   },
   {
@@ -13797,7 +15526,8 @@
       "cellphone",
       "mobile",
       "carrier",
-      "network"
+      "network",
+      "signal"
     ]
   },
   {
@@ -13811,7 +15541,8 @@
       "cellphone",
       "mobile",
       "carrier",
-      "network"
+      "network",
+      "signal"
     ]
   },
   {
@@ -13825,7 +15556,8 @@
       "cellphone",
       "mobile",
       "carrier",
-      "network"
+      "network",
+      "signal"
     ]
   },
   {
@@ -13839,7 +15571,8 @@
       "cellphone",
       "mobile",
       "carrier",
-      "network"
+      "network",
+      "signal"
     ]
   },
   {
@@ -14209,6 +15942,36 @@
       "microsd",
       "chip",
       "memory"
+    ]
+  },
+  {
+    "name": "search-heart-fill",
+    "title": "Search heart fill",
+    "categories": [
+      "Communications",
+      "Love"
+    ],
+    "tags": [
+      "magnifying-glass",
+      "look",
+      "love",
+      "romance",
+      "valentine"
+    ]
+  },
+  {
+    "name": "search-heart",
+    "title": "Search heart",
+    "categories": [
+      "Communications",
+      "Love"
+    ],
+    "tags": [
+      "magnifying-glass",
+      "look",
+      "love",
+      "romance",
+      "valentine"
     ]
   },
   {
@@ -15197,6 +16960,32 @@
   {
     "name": "sliders",
     "title": "Sliders",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "equalizer",
+      "settings",
+      "preferences",
+      "dials"
+    ]
+  },
+  {
+    "name": "sliders2-vertical",
+    "title": "Sliders2 vertical",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "equalizer",
+      "settings",
+      "preferences",
+      "dials"
+    ]
+  },
+  {
+    "name": "sliders2",
+    "title": "Sliders2",
     "categories": [
       "Graphics"
     ],
@@ -16807,6 +18596,30 @@
     ]
   },
   {
+    "name": "trash3-fill",
+    "title": "Trash3 fill",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "trash-can",
+      "garbage",
+      "delete"
+    ]
+  },
+  {
+    "name": "trash3",
+    "title": "Trash3",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "trash-can",
+      "garbage",
+      "delete"
+    ]
+  },
+  {
     "name": "tree-fill",
     "title": "Tree fill",
     "categories": [
@@ -17328,6 +19141,30 @@
     "tags": null
   },
   {
+    "name": "valentine",
+    "title": "Valentine",
+    "categories": [
+      "Love"
+    ],
+    "tags": [
+      "love",
+      "romance",
+      "valentine"
+    ]
+  },
+  {
+    "name": "valentine2",
+    "title": "Valentine2",
+    "categories": [
+      "Love"
+    ],
+    "tags": [
+      "love",
+      "romance",
+      "valentine"
+    ]
+  },
+  {
     "name": "vector-pen",
     "title": "Vector pen",
     "categories": [
@@ -17816,6 +19653,36 @@
     ],
     "tags": [
       "social"
+    ]
+  },
+  {
+    "name": "wrench-adjustable-circle-fill",
+    "title": "Wrench adjustable circle fill",
+    "categories": [
+      "Tools"
+    ],
+    "tags": [
+      "tool"
+    ]
+  },
+  {
+    "name": "wrench-adjustable-circle",
+    "title": "Wrench adjustable circle",
+    "categories": [
+      "Tools"
+    ],
+    "tags": [
+      "tool"
+    ]
+  },
+  {
+    "name": "wrench-adjustable",
+    "title": "Wrench adjustable",
+    "categories": [
+      "Tools"
+    ],
+    "tags": [
+      "tool"
     ]
   },
   {
