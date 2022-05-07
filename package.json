@@ -4,6 +4,7 @@
   "title": "Probe Match Verifier",
   "description": "A probe match verification tool for ColourSpace.",
   "private": true,
+  "repository": "github:peschee/probe-match-verifier",
   "scripts": {
     "start": "vite",
     "clean": "rimraf dist coverage",
