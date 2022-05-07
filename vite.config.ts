@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { injectHtml } from 'vite-plugin-html';
+import { createHtmlPlugin } from 'vite-plugin-html';
 
 import pkg from './package.json';
 
@@ -7,10 +7,14 @@ import pkg from './package.json';
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig({
   plugins: [
-    injectHtml({
-      data: {
-        title: pkg.title,
-        description: pkg.description,
+    // @see https://github.com/vbenjs/vite-plugin-html
+    createHtmlPlugin({
+      entry: '/src/main.ts',
+      inject: {
+        data: {
+          title: pkg.title,
+          description: pkg.description,
+        },
       },
     }),
   ],
