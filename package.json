@@ -23,7 +23,7 @@
     "coverage": "vitest --coverage",
     "preinstall": "npx -y only-allow pnpm",
     "postinstall": "rimraf 'public/shoelace' && cpy --flat 'node_modules/@shoelace-style/shoelace/dist/assets/icons' 'public/shoelace/assets/icons'",
-    "release": "npx np --no-publish --no-cleanup"
+    "release": "npx np --no-publish --no-cleanup --release-draft-only"
   },
   "keywords": [
     "colourspace",
