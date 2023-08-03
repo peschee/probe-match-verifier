@@ -80,14 +80,14 @@ devDependencies:
     specifier: ^4.6.4
     version: 4.6.4
   vite:
-    specifier: ^2.9.8
-    version: 2.9.8
+    specifier: ^2.9.16
+    version: 2.9.16
   vite-plugin-html:
     specifier: ^3.2.0
-    version: 3.2.0(acorn@8.7.1)(vite@2.9.8)
+    version: 3.2.0(acorn@8.7.1)(vite@2.9.16)
   vite-remark-html:
     specifier: ^1.1.1
-    version: 1.1.1(vite@2.9.8)
+    version: 1.1.1(vite@2.9.16)
   vitest:
     specifier: ^0.10.5
     version: 0.10.5(c8@7.11.2)
@@ -4536,7 +4536,7 @@ packages:
       vfile-message: 3.1.0
     dev: true
 
-  /vite-plugin-html@3.2.0(acorn@8.7.1)(vite@2.9.8):
+  /vite-plugin-html@3.2.0(acorn@8.7.1)(vite@2.9.16):
     resolution: {integrity: sha512-2VLCeDiHmV/BqqNn5h2V+4280KRgQzCFN47cst3WiNK848klESPQnzuC3okH5XHtgwHH/6s1Ho/YV6yIO0pgoQ==}
     peerDependencies:
       vite: '>=2.0.0'
@@ -4553,12 +4553,12 @@ packages:
       html-minifier-terser: 6.1.0(acorn@8.7.1)
       node-html-parser: 5.3.3
       pathe: 0.2.0
-      vite: 2.9.8
+      vite: 2.9.16
     transitivePeerDependencies:
       - acorn
     dev: true
 
-  /vite-remark-html@1.1.1(vite@2.9.8):
+  /vite-remark-html@1.1.1(vite@2.9.16):
     resolution: {integrity: sha512-/Nndll9lcBWjLYWfbH3CYiybuVjkNrQ5j68S5PunBR8T19V6egtUpWLN0j/PlSvxtbBWbhb+pjhU88G3zm1/Ow==}
     peerDependencies:
       vite: '>2.0.0-0'
@@ -4567,13 +4567,13 @@ packages:
       remark-html: 13.0.2
       remark-parse: 9.0.0
       unified: 9.2.2
-      vite: 2.9.8
+      vite: 2.9.16
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@2.9.8:
-    resolution: {integrity: sha512-zsBGwn5UT3YS0NLSJ7hnR54+vUKfgzMUh/Z9CxF1YKEBVIe213+63jrFLmZphgGI5zXwQCSmqIdbPuE8NJywPw==}
+  /vite@2.9.16:
+    resolution: {integrity: sha512-X+6q8KPyeuBvTQV8AVSnKDvXoBMnTx8zxh54sOwmmuOdxkjMmEJXH2UEchA+vTMps1xw9vL64uwJOWryULg7nA==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
@@ -4622,7 +4622,7 @@ packages:
       local-pkg: 0.4.1
       tinypool: 0.1.3
       tinyspy: 0.3.2
-      vite: 2.9.8
+      vite: 2.9.16
     transitivePeerDependencies:
       - less
       - sass
