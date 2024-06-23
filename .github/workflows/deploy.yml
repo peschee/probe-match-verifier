@@ -25,13 +25,24 @@ jobs:
       - run: |
           echo 'INJECT_ANALYTICS=1' >> .env
           echo "BUILD_VERSION=${GITHUB_REF_NAME}-$(date -u +"%Y-%m-%dT%H:%M")-${GITHUB_SHA::7}" >> .env
+          echo "GITHUB_SHA_SHORT=$(git rev-parse --short ${{ github.sha }})" >> $GITHUB_ENV
 
       - name: Build
-        run: pnpm run build:gh-pages
+        run: pnpm run build
 
-      - name: Deploy to Github Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          allow_empty_commit: true
+      # Use netlify-cli directly, since it is installed in the latest ubuntu runner
+      # @see https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md#cli-tools
+      # @see https://cli.netlify.com/commands/deploy/
+      - name: Deploy
+        id: deploy
+        run: |
+          rm package.json && \
+          netlify deploy \
+            --build false \
+            --dir dist \
+            --message 'Production deployment (${{ env.GITHUB_SHA_SHORT }})' \
+            --prod true \
+            --json true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

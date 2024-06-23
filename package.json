@@ -9,7 +9,6 @@
     "start": "vite",
     "clean": "rimraf dist coverage",
     "build": "pnpm run clean && tsc && vite build",
-    "build:gh-pages": "pnpm run build -- --base=/probe-match-verifier/",
     "preview": "vite preview",
     "prepreview": "pnpm run build",
     "lint": "run-p lint:*",
