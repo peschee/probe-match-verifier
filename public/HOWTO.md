@@ -42,7 +42,7 @@
 
    User can **download** these patch sets for [FULL](./Probe-Matching-Verification_FULL.csv) or [LEGAL](./Probe-Matching-Verification_LEGAL.csv).
 
-   When using this tool, we suggest not using Patch Scale Extended. Patch Scale Extended uses Legal Range values for matching `222` but requires additional `255` patch to save the profile.
+   When using this tool, we suggest not using Patch Scale Extended. Patch Scale Extended uses Legal Range values for matching `224` but requires additional `255` patch to save the profile.
 
 3. Save this profile
 
