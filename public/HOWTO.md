@@ -40,7 +40,7 @@
       </tr>
     </table>
 
-   User can **download** these patch sets for [FULL](./Probe-Matching-Verification_FULL.csv) or [LEGAL](./Probe-Matching-Verification_LEGAL.csv).
+   User can **download** these **8-bit** patch sets for [FULL](./Probe-Match%208b%20%28FULL%29.csv) or [LEGAL](./Probe-Match%208b%20%28LEGAL%29.csv).
 
    When using this tool, we suggest not using Patch Scale Extended. Patch Scale Extended uses Legal Range values for matching `224` but requires additional `255` patch to save the profile.
 
