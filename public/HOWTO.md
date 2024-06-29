@@ -66,12 +66,12 @@ When using this tool, we suggest not using Patch Scale Extended. Patch Scale Ext
 
 **8-bit:**
 
-- [16 - 235 (Legal)](./patches/Probe-Match%208b%20%28LEGAL%29.csv)
-- [16 - 255 (Extended)](./patches/Probe-Match%208b%20(EXTENDED).csv)
-- [0 - 255 (Full)](./patches/Probe-Match%208b%20%28FULL%29.csv) 
+- [16 - 235 (Legal)](/patches/Probe-Match-8b-LEGAL.csv)
+- [16 - 255 (Extended)](/patches/Probe-Match-8b-EXTENDED.csv)
+- [0 - 255 (Full)](/patches/Probe-Match-8b-FULL.csv)
 
 **10-bit:**
 
-- [64 - 940 (Legal)](patches/Probe-Match%2010b%20(LEGAL).csv)
-- [64 - 1023 (Extended)](/patches/Probe-Match%2010b%20(EXTENDED).csv)
-- [0 - 1023 (Full)](/patches/Probe-Match%2010b%20(FULL).csv)
+- [64 - 940 (Legal)](/patches/Probe-Match-10b-LEGAL.csv)
+- [64 - 1023 (Extended)](/patches/Probe-Match-10b-EXTENDED.csv)
+- [0 - 1023 (Full)](/patches/Probe-Match-10b-FULL.csv)

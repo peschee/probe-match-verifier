@@ -24,20 +24,26 @@
 
 @font-face {
   font-family: 'JetBrains Mono';
-  src: url('../fonts/web/JetBrainsMono-Regular.woff2') format('woff2'), url('../fonts/ttf/JetBrainsMono-Regular.ttf') format('truetype');
+  src:
+    url('../fonts/web/JetBrainsMono-Regular.woff2') format('woff2'),
+    url('../fonts/ttf/JetBrainsMono-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'JetBrains Mono';
-  src: url('../fonts/web/JetBrainsMono-SemiBold.woff2') format('woff2'), url('../fonts/ttf/JetBrainsMono-SemiBold.ttf') format('truetype');
+  src:
+    url('../fonts/web/JetBrainsMono-SemiBold.woff2') format('woff2'),
+    url('../fonts/ttf/JetBrainsMono-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
 }
 
 * {
-  -webkit-font-feature-settings: 'liga' on, 'calt' on;
+  -webkit-font-feature-settings:
+    'liga' on,
+    'calt' on;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
