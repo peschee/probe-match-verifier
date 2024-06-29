@@ -1,6 +1,6 @@
 {
   "name": "probe-match-verifier",
-  "version": "1.2.1",
+  "version": "1.6.1",
   "title": "Probe Match Verifier",
   "description": "A probe match verification tool for ColourSpace.",
   "private": true,
