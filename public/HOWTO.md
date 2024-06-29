@@ -1,6 +1,6 @@
 # How-to
 
-1. 📝 Perform a probe match as described in the [Probe Matching documentation](https://www.lightillusion.com/probe_matching.html) on the LightIllusion website.
+1. 📝 Perform a probe match as described in the [Probe Matching documentation](https://www.lightillusion.com/probe_matching.html) on the Light Illusion website.
 
 2. 🧪 Use the **Manual Measure Tab** to measure the **same colours in the same range** as during the probe match. In order to save the profile, your patch sets need to contain the following values:
 
