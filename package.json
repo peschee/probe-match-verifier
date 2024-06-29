@@ -37,11 +37,11 @@
   "author": "Peter Siska <63866+peschee@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^17.0.31",
-    "@typescript-eslint/eslint-plugin": "^5.22.0",
-    "@typescript-eslint/parser": "^5.22.0",
-    "c8": "^7.11.2",
-    "cpy-cli": "^4.1.0",
+    "@types/node": "^20.14.9",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.14.1",
+    "c8": "^10.1.2",
+    "cpy-cli": "^5.0.0",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-lit": "^1.14.0",
@@ -62,9 +62,9 @@
   "dependencies": {
     "@shoelace-style/shoelace": "^2.15.1",
     "@vanillawc/wc-markdown": "^1.6.11",
-    "browser-fs-access": "^0.29.5",
+    "browser-fs-access": "^0.35.0",
     "cie-colorconverter": "^3.1.0",
-    "fast-xml-parser": "^4.2.5",
+    "fast-xml-parser": "^4.4.0",
     "lit": "^3.1.4",
     "normalize.css": "^8.0.1"
   },
