@@ -34,8 +34,6 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      # Use netlify-cli directly, since it is installed in the latest ubuntu runner
-      # @see https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md#cli-tools
       # @see https://cli.netlify.com/commands/deploy/
       - name: Deploy
         id: deploy
