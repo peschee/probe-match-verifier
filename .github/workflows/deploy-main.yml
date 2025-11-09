@@ -41,7 +41,7 @@ jobs:
         id: deploy
         run: |
           rm package.json && \
-          netlify deploy \
+          pnpm --package=netlify-cli@22.2.1 dlx netlify deploy \
             --alias ${{ env.BRANCH_NAME_SLUG }} \
             --build false \
             --dir dist \
