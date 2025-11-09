@@ -40,11 +40,10 @@ jobs:
           rm package.json && \
           pnpm --package=netlify-cli@22.2.1 dlx netlify deploy \
             --alias ${{ env.BRANCH_NAME_SLUG }} \
-            --build false \
+            --no-build \
             --dir dist \
             --message 'Preview deployment for ${{ steps.slug.outputs.branch-name }} (${{ env.GITHUB_SHA_SHORT }})' \
-            --prod false \
-            --json true
+            --json
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

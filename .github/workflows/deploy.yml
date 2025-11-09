@@ -30,19 +30,17 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      # Use netlify-cli directly, since it is installed in the latest ubuntu runner
-      # @see https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md#cli-tools
       # @see https://cli.netlify.com/commands/deploy/
       - name: Deploy
         id: deploy
         run: |
           rm package.json && \
           pnpm --package=netlify-cli@22.2.1 dlx netlify deploy \
-            --build false \
+            --no-build \
             --dir dist \
             --message 'Production deployment (${{ env.GITHUB_SHA_SHORT }})' \
-            --prod true \
-            --json true
+            --prod \
+            --json
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
