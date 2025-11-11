@@ -106,7 +106,7 @@ export class AppShell extends LitElement {
           label="About"
           @click="${() => {
             this.aboutDialog?.show();
-            AppShell.trackUmamiEvent('open', 'about');
+            AppShell.trackUmamiEvent('open-about');
           }}"
           class="info about-trigger"
         ></sl-icon-button>
@@ -151,7 +151,7 @@ export class AppShell extends LitElement {
       </main>
 
       <footer>
-        <sl-dialog data-dialog-about class="about-dialog" @sl-hide="${() => AppShell.trackUmamiEvent('close', 'about')}">
+        <sl-dialog data-dialog-about class="about-dialog" @sl-hide="${() => AppShell.trackUmamiEvent('close-about')}">
           <wc-markdown src="${import.meta.env.BASE_URL}HOWTO.md"></wc-markdown>
           <sl-button slot="footer" variant="primary" @click="${() => this.aboutDialog?.hide()}">Close</sl-button>
         </sl-dialog>
@@ -196,7 +196,7 @@ export class AppShell extends LitElement {
   }
 
   private async openVerificationBcsFile() {
-    AppShell.trackUmamiEvent('open', 'bcs');
+    AppShell.trackUmamiEvent('open-bcs');
     try {
       const blob = await fileOpen({
         description: 'BCS files',
@@ -205,19 +205,19 @@ export class AppShell extends LitElement {
 
       this.verificationBcs = blob;
       this.requestUpdate('verificationBcs');
-      AppShell.trackUmamiEvent('load', 'bcs');
+      AppShell.trackUmamiEvent('load-bcs');
 
       if (DEBUG) {
         console.log('openVerificationBcsFile', blob);
       }
     } catch (e) {
       console.error(e);
-      AppShell.trackUmamiEvent(`error: ${e}`, 'bcs');
+      AppShell.trackUmamiEvent('error', e);
     }
   }
 
   private async openReferenceBpdFile() {
-    AppShell.trackUmamiEvent('open', 'bpd');
+    AppShell.trackUmamiEvent('open-bpd');
 
     try {
       const blob = await fileOpen({
@@ -227,14 +227,14 @@ export class AppShell extends LitElement {
 
       this.referenceBpd = blob;
       this.requestUpdate('referenceBpd');
-      AppShell.trackUmamiEvent('load', 'bpd');
+      AppShell.trackUmamiEvent('load-bpd');
 
       if (DEBUG) {
         console.log('openReferenceBpdFile', blob);
       }
     } catch (e) {
       console.error(e);
-      AppShell.trackUmamiEvent(`error: ${e}`, 'bpd');
+      AppShell.trackUmamiEvent('error', e);
     }
   }
 
@@ -276,7 +276,7 @@ export class AppShell extends LitElement {
   }
 
   private renderComparisonTable(reference: RGBW, verification: RGBW, errors: xyYErrors) {
-    AppShell.trackUmamiEvent('render', 'comparison');
+    AppShell.trackUmamiEvent('render-comparison');
     return html`
       <table class="profile-comparison">
         ${this.renderComparisonForColor(reference, verification, errors, 'red')} ${this.renderComparisonForColor(reference, verification, errors, 'green')}
@@ -430,14 +430,20 @@ export class AppShell extends LitElement {
     this.appContent.style.setProperty('--app-header-size', `${this.appHeader.offsetHeight}px`);
   }
 
-  private static trackUmamiEvent(value: string, type = 'custom') {
+  private static trackUmamiEvent(eventName: string, data?: unknown) {
     const umami = (window as never)['umami'];
     if (!umami) {
       return;
     }
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    umami.trackEvent(value, type);
+    if (data) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      umami.track(eventName, data);
+    } else {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      umami.track(eventName);
+    }
   }
 }
