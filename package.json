@@ -62,7 +62,7 @@
   "dependencies": {
     "@shoelace-style/shoelace": "^2.15.1",
     "@vanillawc/wc-markdown": "^1.6.11",
-    "browser-fs-access": "^0.35.0",
+    "browser-fs-access": "^0.38.0",
     "cie-colorconverter": "^3.1.0",
     "fast-xml-parser": "^4.4.0",
     "lit": "^3.1.4",
