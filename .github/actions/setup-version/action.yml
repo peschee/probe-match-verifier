@@ -1,0 +1,24 @@
+name: 'Setup Version'
+description: 'Set up build version and GitHub SHA short variables'
+
+outputs:
+  github-sha-short:
+    description: 'Short Git SHA (7 characters)'
+    value: ${{ steps.set-version.outputs.github-sha-short }}
+  build-version:
+    description: 'Build version string'
+    value: ${{ steps.set-version.outputs.build-version }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set version variables
+      id: set-version
+      shell: bash
+      run: |
+        SEMVER=$(jq -r '.version' package.json)
+        GITHUB_SHA_SHORT=$(git rev-parse --short ${{ github.sha }})
+        BUILD_VERSION="${SEMVER}-$(date -u +"%Y-%m-%dT%H:%M:%SZ")-${{ github.run_number }}-${GITHUB_SHA_SHORT}"
+
+        echo "github-sha-short=${GITHUB_SHA_SHORT}" >> $GITHUB_OUTPUT
+        echo "build-version=${BUILD_VERSION}" >> $GITHUB_OUTPUT

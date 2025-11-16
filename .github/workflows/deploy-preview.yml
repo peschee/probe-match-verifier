@@ -23,12 +23,16 @@ jobs:
       - uses: gacts/github-slug@v1
         id: slug
 
+      - name: Setup version
+        id: version
+        uses: ./.github/actions/setup-version
+
       - run: |
           echo 'INJECT_ANALYTICS=1' >> .env
-          echo "BUILD_VERSION=${GITHUB_REF_NAME}-$(date -u +"%Y-%m-%dT%H:%M")-${GITHUB_SHA::7}" >> .env
+          echo "BUILD_VERSION=${{ steps.version.outputs.build-version }}" >> .env
+          echo "GITHUB_SHA_SHORT=${{ steps.version.outputs.github-sha-short }}" >> $GITHUB_ENV
           echo "BRANCH_NAME_SLUG=${{ steps.slug.outputs.branch-name-slug }}" >> $GITHUB_ENV
           echo "DEPLOY_URL=https://${{ steps.slug.outputs.branch-name-slug }}--probe-match-verifier.netlify.app" >> $GITHUB_ENV
-          echo "GITHUB_SHA_SHORT=$(git rev-parse --short ${{ github.sha }})" >> $GITHUB_ENV
 
       - name: Build
         run: pnpm run build
