@@ -43,7 +43,7 @@
     "c8": "^10.1.2",
     "cpy-cli": "^5.0.0",
     "eslint": "^8.15.0",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-lit": "^1.14.0",
     "eslint-plugin-wc": "^2.1.0",
     "lint-staged": "^15.2.7",
