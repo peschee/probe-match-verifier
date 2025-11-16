@@ -23,10 +23,12 @@ jobs:
               args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: Setup version
+        id: version
         uses: ./.github/actions/setup-version
 
       - run: |
           echo 'INJECT_ANALYTICS=1' >> .env
+          echo "BUILD_VERSION=${{ steps.version.outputs.build-version }}" >> .env
 
       - name: Build
         run: pnpm run build
