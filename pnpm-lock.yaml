@@ -52,8 +52,8 @@ importers:
         specifier: ^9.1.0
         version: 9.1.2(eslint@8.57.1)
       eslint-plugin-lit:
-        specifier: ^1.14.0
-        version: 1.15.0(eslint@8.57.1)
+        specifier: ^2.1.1
+        version: 2.1.1(eslint@8.57.1)
       eslint-plugin-wc:
         specifier: ^2.1.0
         version: 2.2.1(eslint@8.57.1)
@@ -1034,11 +1034,11 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-plugin-lit@1.15.0:
-    resolution: {integrity: sha512-Yhr2MYNz6Ln8megKcX503aVZQln8wsywCG49g0heiJ/Qr5UjkE4pGr4Usez2anNcc7NvlvHbQWMYwWcgH3XRKA==}
-    engines: {node: '>= 12'}
+  eslint-plugin-lit@2.1.1:
+    resolution: {integrity: sha512-qmyAOnnTCdS+vDnNxtCoF0icSKIio4GUv6ZLnaCtTX6G/YezRa6Ag6tOQ+MfV5Elvtw9CIXeliRX4mIBSwrPIA==}
+    engines: {node: '>= 18'}
     peerDependencies:
-      eslint: '>= 5'
+      eslint: '>= 8'
 
   eslint-plugin-wc@2.2.1:
     resolution: {integrity: sha512-KstLqGmyQz088DvFlDYHg0sHih+w2QeulreCi1D1ftr357klO2zqHdG/bbnNMmuQdVFDuNkopNIyNhmG0XCT/g==}
@@ -2082,10 +2082,6 @@ packages:
   require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
-
-  requireindex@1.2.0:
-    resolution: {integrity: sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==}
-    engines: {node: '>=0.10.5'}
 
   resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
@@ -3609,12 +3605,11 @@ snapshots:
     dependencies:
       eslint: 8.57.1
 
-  eslint-plugin-lit@1.15.0(eslint@8.57.1):
+  eslint-plugin-lit@2.1.1(eslint@8.57.1):
     dependencies:
       eslint: 8.57.1
       parse5: 6.0.1
       parse5-htmlparser2-tree-adapter: 6.0.1
-      requireindex: 1.2.0
 
   eslint-plugin-wc@2.2.1(eslint@8.57.1):
     dependencies:
@@ -4927,8 +4922,6 @@ snapshots:
       - supports-color
 
   require-directory@2.1.1: {}
-
-  requireindex@1.2.0: {}
 
   resolve-from@4.0.0: {}
 
