@@ -18,7 +18,7 @@ runs:
       run: |
         SEMVER=$(jq -r '.version' package.json)
         GITHUB_SHA_SHORT=$(git rev-parse --short ${{ github.sha }})
-        BUILD_VERSION="${SEMVER}-$(date -u +"%Y-%m-%dT%H:%M:%SZ")-${{ github.run_number }}-${GITHUB_SHA_SHORT}"
+        BUILD_VERSION="${SEMVER}-$(TZ=Europe/Zurich date +"%Y-%m-%d-%H:%M:%S")-${{ github.run_number }}-${GITHUB_SHA_SHORT}"
 
         echo "github-sha-short=${GITHUB_SHA_SHORT}" >> $GITHUB_OUTPUT
         echo "build-version=${BUILD_VERSION}" >> $GITHUB_OUTPUT
